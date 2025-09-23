@@ -1334,3 +1334,8 @@ body.entered .artists-drawer {
     font-size: 0.55rem !important;
   }
 }
+
+/* Remove shadow from Umwelt cover specifically */
+.umwelt-cover {
+  box-shadow: none !important;
+}
