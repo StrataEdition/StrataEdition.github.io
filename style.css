@@ -1282,30 +1282,55 @@ body.entered .artists-drawer {
   }
 }
 
-/* --- Make detail view text smaller on mobile --- */
-  
-/* Target all descriptive text in detail panels */
+/* --- Increase detail view text size on desktop --- */
 .detail-info p,
 .detail-info li,
 .detail-info div,
 .detail-info span,
 .detail-description,
-.detail-content * {
-  font-size: 0.52rem !important; /* Reduce from 0.7rem to 0.5rem */
-  line-height: 1.5 !important; /* Slightly reduce line height for better fit */
+.detail-content p {
+  font-size: 0.75rem !important; /* Increased from 0.7rem */
+  line-height: 1.7 !important;
 }
 
 /* Target specifically label descriptions */
 #label .detail-info p,
 #label .detail-info div,
 #label .detail-description {
-  font-size: 0.52rem !important;
-  margin-bottom: 1rem !important; /* Reduce paragraph margin for tighter layout */
+  font-size: 0.75rem !important;
 }
 
-/* Make sure bandcamp embeds don't overflow */
-.bandcamp-embed,
-iframe {
-  max-width: 100% !important;
-  margin-bottom: 1rem !important;
+/* Links within descriptions */
+.detail-info a,
+.detail-description a {
+  font-size: 0.75rem !important;
+}
+
+@media (max-width: 768px) {
+  /* --- Make detail view text slightly larger for better readability on mobile --- */
+  
+  /* Target all descriptive text in detail panels */
+  .detail-info p,
+  .detail-info li,
+  .detail-info div,
+  .detail-info span,
+  .detail-description,
+  .detail-content * {
+    font-size: 0.55rem !important; /* Mobile size */
+    line-height: 1.6 !important;
+  }
+  
+  /* Target specifically label descriptions */
+  #label .detail-info p,
+  #label .detail-info div,
+  #label .detail-description {
+    font-size: 0.55rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Links within descriptions */
+  .detail-info a,
+  .detail-description a {
+    font-size: 0.55rem !important;
+  }
 }
