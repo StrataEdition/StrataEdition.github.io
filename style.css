@@ -1,0 +1,410 @@
+/* ======================================
+   GLOBAL
+====================================== */
+html, body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    font-size: 10px;
+    font-family: 'Azeret Mono', monospace;
+    color: black;
+    overflow: hidden; /* desktop = static layout */
+}
+
+/* ======================================
+   SCALE
+====================================== */
+:root {
+    --square-width: 2%;
+    --vertical-spacing: 180px;
+    --content-shift: -15%;
+}
+
+/* ======================================
+   CURSOR
+====================================== */
+.text.clickable,
+.text[onclick] {
+    cursor: pointer;
+}
+
+/* ======================================
+   LINKS
+====================================== */
+a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+/* ======================================
+   UNIVERSAL SQUARES
+====================================== */
+.square,
+.nav-square,
+.bullet,
+.bottom-square {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+}
+
+/* ======================================
+   LANDING VIDEO
+====================================== */
+#landing-container {
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 10;
+    cursor: pointer;
+}
+#landing-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ======================================
+   NAV (DESKTOP)
+====================================== */
+.nav {
+    width: 100%;
+    text-align: center;
+    margin-top: var(--vertical-spacing);
+    position: relative;
+    z-index: 5;
+}
+
+.nav nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - (var(--square-width) * 2));
+    margin: 0 auto;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-square {
+    position: relative;
+    top: -1px;
+}
+
+.nav-item a:hover,
+nav a.active {
+    background: black;
+    color: white;
+}
+
+/* ======================================
+   CONTENT (DESKTOP)
+====================================== */
+.content {
+    position: absolute;
+    top: calc(var(--vertical-spacing) + var(--content-shift));
+    left: calc(var(--square-width));
+    right: calc(var(--square-width));
+    bottom: calc(var(--vertical-spacing) - var(--content-shift));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.center-block {
+    text-align: left;
+}
+
+/* ======================================
+   RELEASE LIST (DESKTOP)
+====================================== */
+.release-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.release-list li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+}
+
+.bullet {
+    position: relative;
+    top: -1px;
+}
+
+/* ======================================
+   TEXT COLUMNS (DESKTOP)
+====================================== */
+.text {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#label .text > span,
+#artists .text > span,
+#events .text > span {
+    width: 200px;
+    display: inline-block;
+}
+
+#about .text > span {
+    width: auto;
+    display: inline;
+}
+
+.text.clickable:hover,
+.text.clickable:hover a {
+    background: black;
+    color: white;
+}
+
+/* ======================================
+   POPUP (DESKTOP)
+====================================== */
+#event-preview {
+    display: none;
+    position: absolute;
+    top: calc(50% + 60px);
+    left: 50%;
+    transform: translateX(-55%);
+    z-index: 100;
+    padding-bottom: 100px;   /* tweak this value to taste */
+}
+
+.preview-box {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    align-items: flex-start;
+}
+
+.preview-box img {
+    width: 300px;
+    object-fit: cover;
+}
+
+.preview-details {
+    width: 340px;
+    line-height: 1.4;
+}
+
+.preview-videos {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.preview-videos iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+}
+
+.event-label {
+    background: black;
+    color: white;
+    padding: 0;
+    line-height: 1em;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* ======================================
+   FOOTER (DESKTOP)
+====================================== */
+.footer {
+    text-align: center;
+    position: fixed;
+    bottom: 30px;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+#footer-logo {
+    width: 80px;
+    height: auto;
+}
+
+.rights {
+    margin-top: 4px;
+}
+
+/* bottom squares desktop */
+.bottom-square-left {
+    left: var(--square-width);
+    position: absolute;
+    bottom: var(--vertical-spacing);
+}
+.bottom-square-right {
+    right: var(--square-width);
+    position: absolute;
+    bottom: var(--vertical-spacing);
+}
+
+/* review links */
+.review-link {
+    color: #0000EE;
+    text-decoration: underline;
+}
+.review-link:hover {
+    color: #66A3FF;
+}
+
+/* ======================================
+   MOBILE (max-width: 900px)
+====================================== */
+@media (max-width: 900px) {
+
+    html, body {
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: auto;
+        width: 100%;
+    }
+
+    /* NAV */
+    .nav {
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .nav nav {
+        width: 100%;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        box-sizing: border-box;
+    }
+
+    /* CONTENT */
+    .content {
+        position: static;
+        margin: 30px 20px 100px;
+        padding: 0;
+        width: calc(100% - 40px);
+        text-align: left;
+        box-sizing: border-box;
+        display: block;
+    }
+
+    .center-block {
+        width: 100%;
+        text-align: left;
+    }
+
+    .release-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+
+    .release-list li .bullet {
+        margin-top: 2px;
+        flex-shrink: 0;
+    }
+
+    .release-list li .text {
+        display: block;
+        width: 100%;
+    }
+
+    .release-list li .text > span {
+        display: block;
+        line-height: 1.4;
+    }
+
+    #about .text > span {
+        display: inline;
+        width: auto !important;
+    }
+
+    /* POPUP BELOW CONTENT */
+    #event-preview {
+        position: static !important;
+        display: none;
+        width: 100%;
+        margin-top: 20px;
+        transform: none !important;
+    }
+
+    .preview-box {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .preview-box img {
+        width: 100%;
+        height: auto;
+    }
+
+    .preview-details,
+    .preview-videos {
+        width: 100%;
+    }
+
+    .preview-videos iframe {
+        width: 100%;
+        height: 180px;
+    }
+
+    /* FOOTER FIXED */
+    .footer {
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 50;
+        background: none;
+    }
+
+    /* BOTTOM SQUARES — MATCH TOP SIZE */
+    .bottom-square {
+        position: fixed;
+        bottom: 20px;
+        width: 10px !important;
+        height: 10px !important;
+        font-size: 10px !important;
+        line-height: 10px !important;
+        z-index: 50;
+    }
+
+    .bottom-square-left {
+        left: 20px;
+    }
+
+    .bottom-square-right {
+        right: 20px;
+    }
+}
