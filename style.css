@@ -134,6 +134,18 @@ nav a.active {
 .center-block {
     text-align: left;
 }
+/* Prevent popups from changing the width of the content list */
+.page {
+    width: 1000px;      /* or your existing column width */
+    position: relative;
+}
+
+/* Let popups expand beyond the list width */
+.event-preview {
+    width: auto;
+    max-width: none;
+}
+
 
 /* ======================================
    RELEASE LIST (DESKTOP)
@@ -189,7 +201,7 @@ nav a.active {
 #event-preview {
     display: none;
     position: absolute;
-    top: calc(20% + 50px);
+    top: calc(20% + 20px); /* this will be overridden by JS when popup opens */
     left: 50%;
     transform: translateX(-55%);
     z-index: 100;
@@ -431,5 +443,3 @@ nav a.active {
         right: 20px;
     }
 }
-
-

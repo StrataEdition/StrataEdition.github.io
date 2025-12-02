@@ -6,7 +6,6 @@ function showSite() {
     document.getElementById("landing-container").style.display = "none";
     document.getElementById("main-site").style.display = "block";
 
-    // Keep desktop non-scrolling at start (scroll is enabled only for popups)
     const firstNavLink = document.querySelector("nav a:nth-of-type(1)");
     if (firstNavLink) {
         firstNavLink.click();
@@ -32,13 +31,22 @@ function showPage(id, link) {
     hidePreview(true);
 }
 
-/* POPUP DOM */
-const previewBox = document.getElementById("event-preview");
-const previewImg = document.getElementById("preview-img");
-const previewInfo = document.getElementById("preview-info");
-const previewVideos = document.getElementById("preview-videos");
+/* POPUP DOM: EVENTS */
+const eventsPreview = document.getElementById("events-preview");
+const eventsImg = document.getElementById("events-preview-img");
+const eventsInfo = document.getElementById("events-preview-info");
+const eventsVideos = document.getElementById("events-preview-videos");
 
-/* EVENT DATA */
+/* POPUP DOM: LABEL */
+const labelPreview = document.getElementById("label-preview");
+const labelImg = document.getElementById("label-preview-img");
+const labelInfo = document.getElementById("label-preview-info");
+const labelVideos = document.getElementById("label-preview-videos");
+
+
+/* =========================
+   EVENT DATA
+========================= */
 const EVENT_DATA = {
     "EVT-005": {
         img: "assets/STRATA 5 HORSE HOSPITAL POSTER.jpg",
@@ -67,7 +75,10 @@ const EVENT_DATA = {
     }
 };
 
-/* RELEASE DATA */
+
+/* =========================
+   RELEASE DATA
+========================= */
 const RELEASE_DATA = {
     "STR-004": {
         img: "assets/Memory Recoil Mid Res.png",
@@ -80,7 +91,7 @@ const RELEASE_DATA = {
         img: "assets/Umwelt Artwork.jpg",
         title: "UMWELT",
         quotes: [
-            `"Onas Ueno's Umwelt EP is a haunting, immersive journey through ambient and experimental soundscapes. Blending glitch, spectral melodies, and neoclassical tones, each track unfolds with emotional depth and textural richness." — <a class='review-link' target="_blank" href="https://igloomag.com/reviews/onas-ueno-umwelt-strata">Igloo Mag</a>`
+            `"Onas Ueno's Umwelt EP is a haunting, immersive journey..." — <a class='review-link' target="_blank" href="https://igloomag.com/reviews/onas-ueno-umwelt-strata">Igloo Mag</a>`
         ],
         bandcamp: `
 <iframe style="border:0; width:100%; height:120px;"
@@ -92,7 +103,7 @@ seamless></iframe>`,
         img: "assets/Ettrick Sites Cover 1024x1024.jpg",
         title: "ETTRICK SITES",
         quotes: [
-            `"Named after Loch Ettrick ... evokes a primeval digital universe." — <a class='review-link' target="_blank" href="https://www.thewire.co.uk">The Wire</a>`
+            `"Named after Loch Ettrick ... evokes a primeval digital universe." — <a class='review-link' href="https://www.thewire.co.uk">The Wire</a>`
         ],
         bandcamp: `
 <iframe style="border:0; width:100%; height:120px;"
@@ -104,8 +115,8 @@ seamless></iframe>`,
         img: "assets/ScanDiskCover.png",
         title: "SCANDISK",
         quotes: [
-            `"Snapshots of voices and digital debris ...” — <a class='review-link' target="_blank" href="https://thequietus.com/quietus-reviews/partial-defrag-scandisk-review/">The Quietus</a>`,
-            `"Prickly compositions ...” — <a class='review-link' target="_blank" href="https://www.ninaprotocol.com/articles/partial-defrag-scandisk">NINA Protocol</a>`
+            `"Snapshots of voices..." — <a class='review-link' href="https://thequietus.com/quietus-reviews/partial-defrag-scandisk-review/">The Quietus</a>`,
+            `"Prickly compositions..." — <a class='review-link' href="https://www.ninaprotocol.com/articles/partial-defrag-scandisk">NINA Protocol</a>`
         ],
         bandcamp: `
 <iframe style="border:0; width:100%; height:120px;"
@@ -115,113 +126,90 @@ seamless></iframe>`,
     }
 };
 
-/* EVENT POPUP */
-function previewEvent(id) {
 
-    // ENABLE SCROLL on popup open
+/* =========================
+   EVENT POPUP
+========================= */
+function previewEvent(id) {
     document.body.style.overflow = "auto";
     document.documentElement.style.overflow = "auto";
 
     const d = EVENT_DATA[id];
     if (!d) return;
 
-    if (previewBox) {
-        previewBox.style.display = "flex";
-    }
-    if (previewImg) {
-        previewImg.src = d.img;
-    }
-    if (previewInfo) {
-        previewInfo.innerHTML = `
+    eventsPreview.style.display = "block";
+    eventsImg.src = d.img;
+    eventsInfo.innerHTML = `
         <div class="event-label">VENUE</div><br>${d.venue}<br><br>
         <div class="event-label">ARTISTS</div><br>${d.artists.join("<br>")}
     `;
-    }
-    if (previewVideos) {
-        previewVideos.innerHTML = "";
-    }
+    eventsVideos.innerHTML = "";
 }
 
-/* RELEASE POPUP */
-function previewRelease(id) {
 
-    // ENABLE SCROLL on popup open
+/* =========================
+   RELEASE POPUP
+========================= */
+function previewRelease(id) {
     document.body.style.overflow = "auto";
     document.documentElement.style.overflow = "auto";
 
     const d = RELEASE_DATA[id];
     if (!d) return;
 
-    if (previewBox) {
-        previewBox.style.display = "flex";
-    }
-
-    if (previewImg) {
-        previewImg.src = d.img;
-    }
+    labelPreview.style.display = "block";
+    labelImg.src = d.img;
 
     const q = d.quotes.length
         ? d.quotes.map(c => `<p>${c}</p>`).join("")
         : "";
 
-    if (previewInfo) {
-        previewInfo.innerHTML = `
+    labelInfo.innerHTML = `
         <div class="event-label">${d.title}</div>
         ${q}
         ${d.bandcamp}
     `;
-    }
 
-    if (previewVideos) {
-        previewVideos.innerHTML = d.youtube.length
-            ? d.youtube.map(videoId =>
-                `<iframe
-                    src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1"
-                    frameborder="0"
-                    allow="autoplay; encrypted-media; picture-in-picture"
-                    allowfullscreen>
-                </iframe>`
-            ).join("")
-            : "";
-    }
+    labelVideos.innerHTML = d.youtube.map(videoId =>
+        `<iframe src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1"
+         allow="autoplay; encrypted-media; picture-in-picture"
+         allowfullscreen></iframe>`
+    ).join("");
 }
 
-/* CLICK-AWAY CLOSE */
+
+/* =========================
+   CLICK-AWAY CLOSE
+========================= */
 document.addEventListener("click", e => {
-    if (!previewBox) return;
+    const clickIsEvent =
+        eventsPreview.contains(e.target) ||
+        e.target.closest(".text.clickable");
 
-    const isPopup = previewBox.contains(e.target);
-    const clickableText = e.target.closest(".text.clickable");
-
-    if (!isPopup && !clickableText) {
-
-        previewBox.style.display = "none";
-
-        // DISABLE SCROLL again when popup closes
+    if (!clickIsEvent) {
+        eventsPreview.style.display = "none";
+        labelPreview.style.display = "none";
         document.body.style.overflow = "hidden";
         document.documentElement.style.overflow = "hidden";
     }
 });
 
+
 function hidePreview(force = false) {
-    if (!previewBox) return;
-
     if (force) {
-        previewBox.style.display = "none";
-
-        // Also disable scroll on forced close
+        eventsPreview.style.display = "none";
+        labelPreview.style.display = "none";
         document.body.style.overflow = "hidden";
         document.documentElement.style.overflow = "hidden";
     }
 }
+
 
 /* =========================
    FOOTER LOGO MOUSE PLAYBACK
 ========================= */
 
 const footerVideo = document.getElementById("footer-logo");
-
-// Detect mobile devices
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 if (footerVideo) {
@@ -241,8 +229,7 @@ if (footerVideo) {
         }
 
         function checkStop() {
-            const now = Date.now();
-            if (now - lastMove > 80) {
+            if (Date.now() - lastMove > 80) {
                 footerVideo.pause();
             }
             requestAnimationFrame(checkStop);
@@ -252,4 +239,3 @@ if (footerVideo) {
         requestAnimationFrame(checkStop);
     }
 }
-
