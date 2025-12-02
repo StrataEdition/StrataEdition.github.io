@@ -88,7 +88,7 @@ const EVENT_DATA = {
 /* RELEASE DATA */
 const RELEASE_DATA = {
     "STR-004": {
-        img: "assets/Memory Recoil Mid Res.png",
+        img: "assets/Memory Recoil Mid Res.jpg",
         title: "MEMORY RECOIL",
         quotes: [],
         bandcamp: ``,
@@ -98,7 +98,7 @@ const RELEASE_DATA = {
         img: "assets/Umwelt Artwork.jpg",
         title: "UMWELT",
         quotes: [
-            `"Onas Ueno's Umwelt EP is a haunting, immersive journey through ambient and experimental soundscapes. Blending glitch, spectral melodies, and neoclassical tones, each track unfolds with emotional depth and textural richness." — <a class='review-link' target="_blank" href="https://igloomag.com/reviews/onas-ueno-umwelt-strata">Igloo Mag</a>`
+            `"Onas Ueno’s Umwelt EP is a haunting, immersive journey through ambient and experimental soundscapes. Blending glitch, spectral melodies and neoclassical tones, each track unfolds with emotional depth and textural richness. The EP manages to feel both intimate and alien — like an encounter with the memory of a place you’ve never been to." — <a class='review-link' target="_blank" href="https://igloomag.com/reviews/onas-ueno-umwelt-strata">Igloo Mag</a>`
         ],
         bandcamp: `
 <iframe style="border:0; width:100%; height:120px;"
@@ -110,7 +110,7 @@ seamless></iframe>`,
         img: "assets/Ettrick Sites Cover 1024x1024.jpg",
         title: "ETTRICK SITES",
         quotes: [
-            `"Named after Loch Ettrick ... evokes a primeval digital universe." — <a class='review-link' target="_blank" href="https://www.thewire.co.uk">The Wire</a>`
+            `"Named after Loch Ettrick in the Scottish Borders, Ettrick Sites evokes a primeval digital universe. The duo build landscapes that feel ancient and computational at once, folding field-recordings, granular murmurs and synthetic erosion into something uncanny and alive." — <a class='review-link' target="_blank" href="https://www.thewire.co.uk">The Wire</a>`
         ],
         bandcamp: `
 <iframe style="border:0; width:100%; height:120px;"
@@ -119,11 +119,11 @@ seamless></iframe>`,
         youtube: ["AvJs1v066kA", "aFJNOryu5lU"]
     },
     "STR-001": {
-        img: "assets/ScanDiskCover.png",
+        img: "assets/ScanDiskCover.jpg",
         title: "SCANDISK",
         quotes: [
-            `"Snapshots of voices and digital debris ...” — <a class='review-link' target="_blank" href="https://thequietus.com/quietus-reviews/partial-defrag-scandisk-review/">The Quietus</a>`,
-            `"Prickly compositions ...” — <a class='review-link' target="_blank" href="https://www.ninaprotocol.com/articles/partial-defrag-scandisk">NINA Protocol</a>`
+            `"Snapshots of voices and digital debris, arranged in a way that feels archaeological rather than narrative. Each track feels like brushing dust off something mechanical, revealing form and function at the same time.” — <a class='review-link' target="_blank" href="https://thequietus.com/quietus-reviews/partial-defrag-scandisk-review/">The Quietus</a>`,
+            `"Prickly compositions, half-remembered textures, corrupted motifs, and an uncanny sense of digital place-making. SCANDISK feels like peering into a fragmented directory of someone else’s subconscious.” — <a class='review-link' target="_blank" href="https://www.ninaprotocol.com/articles/partial-defrag-scandisk">NINA Protocol</a>`
         ],
         bandcamp: `
 <iframe style="border:0; width:100%; height:120px;"
