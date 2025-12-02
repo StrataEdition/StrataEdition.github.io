@@ -189,7 +189,7 @@ nav a.active {
 #event-preview {
     display: none;
     position: absolute;
-    top: calc(20% + 50px);
+    top: calc(50% + 50px);
     left: 50%;
     transform: translateX(-55%);
     z-index: 100;
@@ -431,3 +431,4 @@ nav a.active {
         right: 20px;
     }
 }
+
