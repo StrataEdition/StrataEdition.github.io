@@ -252,3 +252,4 @@ if (footerVideo) {
         requestAnimationFrame(checkStop);
     }
 }
+
