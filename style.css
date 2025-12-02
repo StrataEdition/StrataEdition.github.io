@@ -4,11 +4,18 @@
 html, body {
     margin: 0;
     padding: 0;
-    background: white;
     font-size: 10px;
     font-family: 'Azeret Mono', monospace;
     color: black;
     overflow: hidden; /* desktop = static layout */
+    height: 100%;
+
+    /* BACKGROUND IMAGE */
+    background-color: white;
+    background-image: url("assets/background-image.jpg");
+    background-size: contain;          /* full image visible */
+    background-position: top center;   /* keep the top visible */
+    background-repeat: no-repeat;
 }
 
 /* ======================================
@@ -17,7 +24,6 @@ html, body {
 :root {
     --square-width: 2%;
     --vertical-spacing: 180px;
-    --content-shift: -15%;
 }
 
 /* ======================================
@@ -76,7 +82,7 @@ a {
 .nav {
     width: 100%;
     text-align: center;
-    margin-top: var(--vertical-spacing);
+    margin-top: var(--vertical-spacing); /* vertical lock relative to background */
     position: relative;
     z-index: 5;
 }
@@ -108,17 +114,21 @@ nav a.active {
 
 /* ======================================
    CONTENT (DESKTOP)
+   - gives content its own band between nav and footer
+   - no overlap with nav or footer
 ====================================== */
 .content {
     position: absolute;
-    top: calc(var(--vertical-spacing) + var(--content-shift));
-    left: calc(var(--square-width));
-    right: calc(var(--square-width));
-    bottom: calc(var(--vertical-spacing) - var(--content-shift));
+    /* place the content zone below the nav band */
+    top: calc(var(--vertical-spacing) + 100px);
+    left: var(--square-width);
+    right: var(--square-width);
+    /* reserve a band above the footer so content never touches it */
+    bottom: calc(var(--vertical-spacing) + 40px);
+
     display: flex;
     justify-content: center;
-    align-items: center;
-
+    align-items: flex-start;
 }
 
 .center-block {
@@ -179,18 +189,24 @@ nav a.active {
 #event-preview {
     display: none;
     position: absolute;
-    top: calc(50% + 60px);
+    top: calc(10% + 20px);
     left: 50%;
     transform: translateX(-55%);
     z-index: 100;
-    padding-bottom: 100px;   /* tweak this value to taste */
+    padding-bottom: 100px; /* original padding you had */
 }
 
+/* make the inside of the popup scroll when it is taller than the viewport */
 .preview-box {
     display: flex;
     gap: 40px;
     max-width: 1200px;
     align-items: flex-start;
+
+    /* scroll behaviour inside the popup */
+    max-height: calc(100vh - 220px); /* enough space above and below */
+    overflow-y: auto;
+    padding-right: 10px; /* room for scrollbar without covering text */
 }
 
 .preview-box img {
@@ -233,6 +249,7 @@ nav a.active {
     position: fixed;
     bottom: 30px;
     width: 100%;
+    z-index: 50;
 }
 
 .logo {
@@ -345,13 +362,14 @@ nav a.active {
         width: auto !important;
     }
 
-    /* POPUP BELOW CONTENT */
+    /* POPUP BELOW CONTENT (no internal scroll on mobile, use page scroll) */
     #event-preview {
         position: static !important;
         display: none;
         width: 100%;
         margin-top: 20px;
         transform: none !important;
+        padding-bottom: 0;
     }
 
     .preview-box {
@@ -359,6 +377,11 @@ nav a.active {
         flex-direction: column;
         width: 100%;
         gap: 20px;
+
+        /* cancel desktop scroll behaviour on mobile */
+        max-height: none;
+        overflow: visible;
+        padding-right: 0;
     }
 
     .preview-box img {
@@ -389,7 +412,7 @@ nav a.active {
         background: none;
     }
 
-    /* BOTTOM SQUARES — MATCH TOP SIZE */
+    /* BOTTOM SQUARES */
     .bottom-square {
         position: fixed;
         bottom: 20px;

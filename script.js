@@ -6,14 +6,11 @@ function showSite() {
     document.getElementById("landing-container").style.display = "none";
     document.getElementById("main-site").style.display = "block";
 
-    /* ENABLE SCROLL ON DESKTOP AFTER LANDING */
-    document.body.style.overflow = "auto";
-    document.documentElement.style.overflow = "auto";
-
-    document.querySelector("nav a:nth-of-type(1)").click();
-
-
-
+    // Keep desktop non-scrolling at start (scroll is enabled only for popups)
+    const firstNavLink = document.querySelector("nav a:nth-of-type(1)");
+    if (firstNavLink) {
+        firstNavLink.click();
+    }
 }
 
 /* =========================
@@ -22,9 +19,16 @@ function showSite() {
 
 function showPage(id, link) {
     document.querySelectorAll(".page").forEach(p => p.style.display = "none");
-    document.getElementById(id).style.display = "block";
+    const page = document.getElementById(id);
+    if (page) {
+        page.style.display = "block";
+    }
+
     document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
-    link.classList.add("active");
+    if (link) {
+        link.classList.add("active");
+    }
+
     hidePreview(true);
 }
 
@@ -63,7 +67,7 @@ const EVENT_DATA = {
     }
 };
 
-/* RELEASE DATA (MAG LINKS RESTORED) */
+/* RELEASE DATA */
 const RELEASE_DATA = {
     "STR-004": {
         img: "assets/Memory Recoil Mid Res.png",
@@ -88,7 +92,7 @@ seamless></iframe>`,
         img: "assets/Ettrick Sites Cover 1024x1024.jpg",
         title: "ETTRICK SITES",
         quotes: [
-            `"Named after Loch Ettrick in Scotland’s Dumfries and Galloway where it was created, this new AV collaboration evokes a primeval digital universe." — <a class='review-link' target="_blank" href="https://www.thewire.co.uk">The Wire</a>`
+            `"Named after Loch Ettrick ... evokes a primeval digital universe." — <a class='review-link' target="_blank" href="https://www.thewire.co.uk">The Wire</a>`
         ],
         bandcamp: `
 <iframe style="border:0; width:100%; height:120px;"
@@ -100,8 +104,8 @@ seamless></iframe>`,
         img: "assets/ScanDiskCover.png",
         title: "SCANDISK",
         quotes: [
-            `"Snapshots of voices and digital debris conjuring up a journey through London’s nocturnal streets" — <a class='review-link' target="_blank" href="https://thequietus.com/quietus-reviews/partial-defrag-scandisk-review/">The Quietus</a>`,
-            `"Prickly compositions pulled from the dregs of hard drive compression" — <a class='review-link' target="_blank" href="https://www.ninaprotocol.com/articles/partial-defrag-scandisk">NINA Protocol</a>`
+            `"Snapshots of voices and digital debris ...” — <a class='review-link' target="_blank" href="https://thequietus.com/quietus-reviews/partial-defrag-scandisk-review/">The Quietus</a>`,
+            `"Prickly compositions ...” — <a class='review-link' target="_blank" href="https://www.ninaprotocol.com/articles/partial-defrag-scandisk">NINA Protocol</a>`
         ],
         bandcamp: `
 <iframe style="border:0; width:100%; height:120px;"
@@ -113,57 +117,102 @@ seamless></iframe>`,
 
 /* EVENT POPUP */
 function previewEvent(id) {
+
+    // ENABLE SCROLL on popup open
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+
     const d = EVENT_DATA[id];
-    previewBox.style.display = "flex";
-    previewImg.src = d.img;
-    previewInfo.innerHTML = `
+    if (!d) return;
+
+    if (previewBox) {
+        previewBox.style.display = "flex";
+    }
+    if (previewImg) {
+        previewImg.src = d.img;
+    }
+    if (previewInfo) {
+        previewInfo.innerHTML = `
         <div class="event-label">VENUE</div><br>${d.venue}<br><br>
         <div class="event-label">ARTISTS</div><br>${d.artists.join("<br>")}
     `;
-    previewVideos.innerHTML = "";
+    }
+    if (previewVideos) {
+        previewVideos.innerHTML = "";
+    }
 }
 
 /* RELEASE POPUP */
 function previewRelease(id) {
-    const d = RELEASE_DATA[id];
-    previewBox.style.display = "flex";
 
-    previewImg.src = d.img;
+    // ENABLE SCROLL on popup open
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+
+    const d = RELEASE_DATA[id];
+    if (!d) return;
+
+    if (previewBox) {
+        previewBox.style.display = "flex";
+    }
+
+    if (previewImg) {
+        previewImg.src = d.img;
+    }
 
     const q = d.quotes.length
         ? d.quotes.map(c => `<p>${c}</p>`).join("")
         : "";
 
-    previewInfo.innerHTML = `
+    if (previewInfo) {
+        previewInfo.innerHTML = `
         <div class="event-label">${d.title}</div>
         ${q}
         ${d.bandcamp}
     `;
+    }
 
-    previewVideos.innerHTML = d.youtube.length
-        ? d.youtube.map(videoId =>
-            `<iframe
-                src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1"
-                frameborder="0"
-                allow="autoplay; encrypted-media; picture-in-picture"
-                allowfullscreen>
-            </iframe>`
-        ).join("")
-        : "";
+    if (previewVideos) {
+        previewVideos.innerHTML = d.youtube.length
+            ? d.youtube.map(videoId =>
+                `<iframe
+                    src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowfullscreen>
+                </iframe>`
+            ).join("")
+            : "";
+    }
 }
 
 /* CLICK-AWAY CLOSE */
 document.addEventListener("click", e => {
-    const isPopup = previewBox.contains(e.target);
-    const isClickableText = e.target.closest(".text.clickable");
+    if (!previewBox) return;
 
-    if (!isPopup && !isClickableText) {
+    const isPopup = previewBox.contains(e.target);
+    const clickableText = e.target.closest(".text.clickable");
+
+    if (!isPopup && !clickableText) {
+
         previewBox.style.display = "none";
+
+        // DISABLE SCROLL again when popup closes
+        document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden";
     }
 });
 
-function hidePreview(force=false) {
-    if (force) previewBox.style.display = "none";
+function hidePreview(force = false) {
+    if (!previewBox) return;
+
+    if (force) {
+        previewBox.style.display = "none";
+
+        // Also disable scroll on forced close
+        document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden";
+    }
 }
 
 /* =========================
@@ -171,43 +220,35 @@ function hidePreview(force=false) {
 ========================= */
 
 const footerVideo = document.getElementById("footer-logo");
-let stopTimeout = null;
 
 // Detect mobile devices
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-if (isMobile) {
-    /* --------------------
-       MOBILE: ALWAYS LOOP
-    -------------------- */
-    footerVideo.loop = true;
-    footerVideo.autoplay = true;
-    footerVideo.play().catch(() => {});
-} else {
-    /* --------------------
-       DESKTOP: LOOP + MOUSE CONTROL
-    -------------------- */
-    footerVideo.loop = true;         // ★ Loop always enabled
-    footerVideo.pause();             // Start paused
-
-    let lastMove = Date.now();
-
-    function playOnMove() {
-        lastMove = Date.now();
+if (footerVideo) {
+    if (isMobile) {
+        footerVideo.loop = true;
+        footerVideo.autoplay = true;
         footerVideo.play().catch(() => {});
-    }
+    } else {
+        footerVideo.loop = true;
+        footerVideo.pause();
 
-    function checkStop() {
-        const now = Date.now();
-        if (now - lastMove > 80) {   // ★ Pause immediately when mouse stops
-            footerVideo.pause();
+        let lastMove = Date.now();
+
+        function playOnMove() {
+            lastMove = Date.now();
+            footerVideo.play().catch(() => {});
         }
+
+        function checkStop() {
+            const now = Date.now();
+            if (now - lastMove > 80) {
+                footerVideo.pause();
+            }
+            requestAnimationFrame(checkStop);
+        }
+
+        document.addEventListener("mousemove", playOnMove);
         requestAnimationFrame(checkStop);
     }
-
-    // Listen for mouse movement
-    document.addEventListener("mousemove", playOnMove);
-
-    // Begin stop watcher
-    requestAnimationFrame(checkStop);
 }
