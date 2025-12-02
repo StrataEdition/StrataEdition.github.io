@@ -59,27 +59,27 @@ function positionPopupBelowList(listSelector) {
 /* EVENT DATA */
 const EVENT_DATA = {
     "EVT-005": {
-        img: "assets/STRATA 5 HORSE HOSPITAL POSTER.jpg",
+        img: "assets/STRATA-5-HORSE-HOSPITAL-POSTER.jpg",
         venue: "THE HORSE HOSPITAL [LONDON]",
         artists: ["CANAAN BALSAM","ONAS UENO","PARTIAL DEFRAG","VITTORIA ASSEMBRI & PAOLA LESINA"]
     },
     "EVT-004": {
-        img: "assets/STRATA 4 ENGINE ROOMS.jpg",
+        img: "assets/STRATA-4-ENGINE-ROOMS.jpg",
         venue: "THE ENGINE ROOMS [LONDON]",
         artists: ["ONAS UENO","CASTLE MAOL","PARTIAL DEFRAG","LAILA SAKINI"]
     },
     "EVT-003": {
-        img: "assets/STRATA 3 RCA.jpg",
+        img: "assets/STRATA-3-RCA.jpg",
         venue: "RCA VISLAB [LONDON]",
         artists: ["CASTLE MAOL","PARTIAL DEFRAG","VERONICA+","GLOVES TO BOUQUET"]
     },
     "EVT-002": {
-        img: "assets/STRATA 2 GOLDSMITHS IKLECTIK POSTER.jpg",
+        img: "assets/STRATA-2-GOLDSMITHS-IKLECTIK-POSTER.jpg",
         venue: "GOLDSMITHS SPATLAB [LONDON]",
         artists: ["PARTIAL DEFRAG","MICHAEL-JON MIZRA","ISIDORA EDWARDS"]
     },
     "EVT-001": {
-        img: "assets/STRATA POSTER A4.jpg",
+        img: "assets/STRATA-POSTER-A4.jpg",
         venue: "SPANNERS [LONDON]",
         artists: ["PARTIAL DEFRAG","ANS M","GLOVES TO BOUQUET","VERONICA+","CASTLE MAOL"]
     }
@@ -88,14 +88,14 @@ const EVENT_DATA = {
 /* RELEASE DATA */
 const RELEASE_DATA = {
     "STR-004": {
-        img: "assets/Memory Recoil Mid Res.jpg",
+        img: "assets/MemoryRecoilMidRes.jpg",
         title: "MEMORY RECOIL",
         quotes: [],
         bandcamp: ``,
         youtube: []
     },
     "STR-003": {
-        img: "assets/Umwelt Artwork.jpg",
+        img: "assets/UmweltArtwork.jpg",
         title: "UMWELT",
         quotes: [
             `"Onas Ueno’s Umwelt EP is a haunting, immersive journey through ambient and experimental soundscapes. Blending glitch, spectral melodies and neoclassical tones, each track unfolds with emotional depth and textural richness. The EP manages to feel both intimate and alien — like an encounter with the memory of a place you’ve never been to." — <a class='review-link' target="_blank" href="https://igloomag.com/reviews/onas-ueno-umwelt-strata">Igloo Mag</a>`
@@ -107,7 +107,7 @@ seamless></iframe>`,
         youtube: []
     },
     "STR-002": {
-        img: "assets/Ettrick Sites Cover 1024x1024.jpg",
+        img: "assets/EttrickSitesCover1024x1024.jpg",
         title: "ETTRICK SITES",
         quotes: [
             `"Named after Loch Ettrick in the Scottish Borders, Ettrick Sites evokes a primeval digital universe. The duo build landscapes that feel ancient and computational at once, folding field-recordings, granular murmurs and synthetic erosion into something uncanny and alive." — <a class='review-link' target="_blank" href="https://www.thewire.co.uk">The Wire</a>`
