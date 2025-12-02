@@ -1,7 +1,6 @@
 /* ======================================
    GLOBAL
 ====================================== */
-
 html, body {
     margin: 0;
     padding: 0;
@@ -190,7 +189,7 @@ nav a.active {
 #event-preview {
     display: none;
     position: absolute;
-    top: calc(10% + 20px);
+    top: calc(20% + 50px);
     left: 50%;
     transform: translateX(-55%);
     z-index: 100;
@@ -432,4 +431,3 @@ nav a.active {
         right: 20px;
     }
 }
-
