@@ -92,7 +92,7 @@ const RELEASE_DATA = {
         title: "MEMORY RECOIL",
         quotes: ['Shifting from swirling sound design to teetering piano motifs, Memory Recoil ventures deeper into the heart of the hard drive, where the haunted remnants of compressed data are mechanically recombined into uncanny, heartfelt confabulations.'],
         bandcamp: `<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=707364654/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://strataedition.bandcamp.com/album/memory-recoil">Memory Recoil by Partial Defrag</a></iframe>`,
-        youtube: []
+        youtube: ["iX9x_s5Wp7E"]
     },
     "STR-003": {
         img: "assets/UmweltArtwork.jpg",
@@ -104,7 +104,7 @@ const RELEASE_DATA = {
 <iframe style="border:0; width:100%; height:120px;"
 src="https://bandcamp.com/EmbeddedPlayer/album=2963886556/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=none/transparent=true/"
 seamless></iframe>`,
-        youtube: ["iX9x_s5Wp7E"]
+        youtube: []
     },
     "STR-002": {
         img: "assets/EttrickSitesCover1024x1024.jpg",
