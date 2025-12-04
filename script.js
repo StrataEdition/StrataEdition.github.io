@@ -91,7 +91,7 @@ const RELEASE_DATA = {
         img: "assets/MemoryRecoilMidRes.jpg",
         title: "MEMORY RECOIL",
         quotes: [],
-        bandcamp: ``,
+        bandcamp: `<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=707364654/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://strataedition.bandcamp.com/album/memory-recoil">Memory Recoil by Partial Defrag</a></iframe>`,
         youtube: []
     },
     "STR-003": {
@@ -104,7 +104,7 @@ const RELEASE_DATA = {
 <iframe style="border:0; width:100%; height:120px;"
 src="https://bandcamp.com/EmbeddedPlayer/album=2963886556/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=none/transparent=true/"
 seamless></iframe>`,
-        youtube: []
+        youtube: ["iX9x_s5Wp7E"]
     },
     "STR-002": {
         img: "assets/EttrickSitesCover1024x1024.jpg",
