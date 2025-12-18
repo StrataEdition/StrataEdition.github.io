@@ -59,7 +59,7 @@ function positionPopupBelowList(listSelector) {
 /* EVENT DATA */
 const EVENT_DATA = {
        "EVT-006": {
-        img: "assets/   STRATA-6-ENGINE-ROOMS.jpg",
+        img: "assets/STRATA-6-ENGINE-ROOMS.jpg",
         venue: "THE ENGINE ROOMS [LONDON]",
         artists: ["PIETRO BARDINI","MIEDO TOTAL","ENGLAND’S COUNCIL OF LEGISLATION AND GOVERNING BODY OF HYPER REAL SIMULATIONS AND CONSTRUCTS","NEW NAME WORLD TOUR"]
     },
@@ -277,4 +277,5 @@ if (footerVideo) {
         requestAnimationFrame(checkStop);
     }
 }
+
 
