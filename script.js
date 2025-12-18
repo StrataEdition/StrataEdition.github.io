@@ -58,6 +58,11 @@ function positionPopupBelowList(listSelector) {
 
 /* EVENT DATA */
 const EVENT_DATA = {
+       "EVT-006": {
+        img: "assets/   STRATA-6-ENGINE-ROOMS.jpg",
+        venue: "THE ENGINE ROOMS [LONDON]",
+        artists: ["PIETRO BARDINI","MIEDO TOTAL","ENGLAND’S COUNCIL OF LEGISLATION AND GOVERNING BODY OF HYPER REAL SIMULATIONS AND CONSTRUCTS","NEW NAME WORLD TOUR"]
+    },
     "EVT-005": {
         img: "assets/STRATA-5-HORSE-HOSPITAL-POSTER.jpg",
         venue: "THE HORSE HOSPITAL [LONDON]",
@@ -73,6 +78,7 @@ const EVENT_DATA = {
         venue: "RCA VISLAB [LONDON]",
         artists: ["CASTLE MAOL","PARTIAL DEFRAG","VERONICA+","GLOVES TO BOUQUET"]
     },
+
     "EVT-002": {
         img: "assets/STRATA-2-GOLDSMITHS-IKLECTIK-POSTER.jpg",
         venue: "GOLDSMITHS SPATLAB [LONDON]",
@@ -271,3 +277,4 @@ if (footerVideo) {
         requestAnimationFrame(checkStop);
     }
 }
+
