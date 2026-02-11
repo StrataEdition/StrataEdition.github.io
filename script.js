@@ -88,6 +88,13 @@ const EVENT_DATA = {
 /* RELEASE DATA */
 const RELEASE_DATA = {
 
+    "STR-005": {
+        img: "assets/ParallelRooms1024x1024.jpg",
+        title: "PARALLEL ROOMS",
+        quotes: [''],
+        bandcamp: `<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1255637387/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://strataedition.bandcamp.com/album/parallel-rooms">Parallel Rooms by Pietro Bardini</a></iframe>`,
+        youtube: []
+    },
     "STR-004": {
         img: "assets/MemoryRecoilMidRes.jpg",
         title: "MEMORY RECOIL",
