@@ -58,11 +58,6 @@ function positionPopupBelowList(listSelector) {
 
 /* EVENT DATA */
 const EVENT_DATA = {
-       "EVT-006": {
-        img: "assets/STRATA-6-ENGINE-ROOMS.jpg",
-        venue: "THE ENGINE ROOMS [LONDON]",
-        artists: ["PIETRO BARDINI","MIEDO TOTAL","ENGLAND’S COUNCIL OF LEGISLATION AND GOVERNING BODY OF HYPER REAL SIMULATIONS AND CONSTRUCTS","NEW NAME WORLD TOUR"]
-    },
     "EVT-005": {
         img: "assets/STRATA-5-HORSE-HOSPITAL-POSTER.jpg",
         venue: "THE HORSE HOSPITAL [LONDON]",
@@ -78,7 +73,6 @@ const EVENT_DATA = {
         venue: "RCA VISLAB [LONDON]",
         artists: ["CASTLE MAOL","PARTIAL DEFRAG","VERONICA+","GLOVES TO BOUQUET"]
     },
-
     "EVT-002": {
         img: "assets/STRATA-2-GOLDSMITHS-IKLECTIK-POSTER.jpg",
         venue: "GOLDSMITHS SPATLAB [LONDON]",
@@ -93,6 +87,15 @@ const EVENT_DATA = {
 
 /* RELEASE DATA */
 const RELEASE_DATA = {
+        "STR-005": {
+        img: "assets/UmweltArtwork.jpg",
+        title: "PARALLEL ROOMS",
+        quotes: [],
+        bandcamp: `
+<iframe style="border:0; width:100%; height:120px;"
+src="https://bandcamp.com/EmbeddedPlayer/album=1255637387/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=none/transparent=true/"
+seamless></iframe>`,
+        youtube: []
     "STR-004": {
         img: "assets/MemoryRecoilMidRes.jpg",
         title: "MEMORY RECOIL",
@@ -277,5 +280,3 @@ if (footerVideo) {
         requestAnimationFrame(checkStop);
     }
 }
-
-
