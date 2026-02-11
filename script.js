@@ -88,7 +88,7 @@ const EVENT_DATA = {
 /* RELEASE DATA */
 const RELEASE_DATA = {
         "STR-005": {
-        img: "assets/UmweltArtwork.jpg",
+        img: "assets/ParallelRooms1024x1024.jpg",
         title: "PARALLEL ROOMS",
         quotes: [],
         bandcamp: `
