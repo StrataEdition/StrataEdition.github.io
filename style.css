@@ -1,5 +1,5 @@
 /* ======================================
-   GLOBAL
+    GLOBAL
 ====================================== */
 html, body {
     margin: 0;
@@ -19,7 +19,7 @@ html, body {
 }
 
 /* ======================================
-   SCALE
+    SCALE
 ====================================== */
 :root {
     --square-width: 2%;
@@ -27,7 +27,7 @@ html, body {
 }
 
 /* ======================================
-   CURSOR
+    CURSOR
 ====================================== */
 .text.clickable,
 .text[onclick] {
@@ -35,7 +35,7 @@ html, body {
 }
 
 /* ======================================
-   LINKS
+    LINKS
 ====================================== */
 a {
     color: inherit;
@@ -45,7 +45,7 @@ a {
 }
 
 /* ======================================
-   UNIVERSAL SQUARES
+    UNIVERSAL SQUARES
 ====================================== */
 .square,
 .nav-square,
@@ -61,7 +61,7 @@ a {
 }
 
 /* ======================================
-   LANDING VIDEO
+    LANDING VIDEO
 ====================================== */
 #landing-container {
     position: fixed;
@@ -77,12 +77,12 @@ a {
 }
 
 /* ======================================
-   NAV (DESKTOP)
+    NAV (DESKTOP)
 ====================================== */
 .nav {
     width: 100%;
     text-align: center;
-    margin-top: var(--vertical-spacing); /* vertical lock relative to background */
+    margin-top: var(--vertical-spacing); 
     position: relative;
     z-index: 5;
 }
@@ -113,17 +113,13 @@ nav a.active {
 }
 
 /* ======================================
-   CONTENT (DESKTOP)
-   - gives content its own band between nav and footer
-   - no overlap with nav or footer
+    CONTENT (DESKTOP)
 ====================================== */
 .content {
     position: absolute;
-    /* place the content zone below the nav band */
     top: calc(var(--vertical-spacing) + 100px);
     left: var(--square-width);
     right: var(--square-width);
-    /* reserve a band above the footer so content never touches it */
     bottom: calc(var(--vertical-spacing) + 40px);
 
     display: flex;
@@ -136,7 +132,7 @@ nav a.active {
 }
 
 /* ======================================
-   RELEASE LIST (DESKTOP)
+    RELEASE LIST (DESKTOP)
 ====================================== */
 .release-list {
     list-style: none;
@@ -157,7 +153,7 @@ nav a.active {
 }
 
 /* ======================================
-   TEXT COLUMNS (DESKTOP)
+    TEXT COLUMNS (DESKTOP)
 ====================================== */
 .text {
     display: flex;
@@ -184,29 +180,26 @@ nav a.active {
 }
 
 /* ======================================
-   POPUP (DESKTOP)
+    POPUP (DESKTOP)
 ====================================== */
 #event-preview {
     display: none;
     position: absolute;
-    top: calc(20% + 20px); /* JS will override this when popup opens */
+    top: calc(20% + 20px); 
     left: 50%;
     transform: translateX(-55%);
     z-index: 100;
-    padding-bottom: 100px; /* original padding you had */
+    padding-bottom: 100px; 
 }
 
-/* make the inside of the popup scroll when it is taller than the viewport */
 .preview-box {
     display: flex;
     gap: 40px;
     max-width: 1200px;
     align-items: flex-start;
-
-    /* scroll behaviour inside the popup */
-    max-height: calc(100vh - 220px); /* enough space above and below */
+    max-height: calc(100vh - 220px); 
     overflow-y: auto;
-    padding-right: 10px; /* room for scrollbar without covering text */
+    padding-right: 10px; 
 }
 
 .preview-box img {
@@ -232,6 +225,7 @@ nav a.active {
     border: none;
 }
 
+/* GLOBAL LABEL STYLE */
 .event-label {
     background: black;
     color: white;
@@ -242,7 +236,63 @@ nav a.active {
 }
 
 /* ======================================
-   FOOTER (DESKTOP)
+    SHOP GALLERY
+====================================== */
+.shop-gallery {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.shop-item {
+    width: 300px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-item a {
+    margin-bottom: 30px; 
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.shop-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.shop-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    margin-top: 15px;
+}
+
+/* OVERRIDE: Shop labels are plain by default */
+.shop-item .event-label {
+    background: transparent;
+    color: black;
+    margin-bottom: 0;
+    transition: background 0.1s ease, color 0.1s ease;
+}
+
+/* HOVER EFFECT: Only title highlights */
+.shop-item:hover .event-label {
+    background: black;
+    color: white;
+}
+
+.shop-desc {
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+/* ======================================
+    FOOTER (DESKTOP)
 ====================================== */
 .footer {
     text-align: center;
@@ -264,11 +314,6 @@ nav a.active {
     height: auto;
 }
 
-.rights {
-    margin-top: 4px;
-}
-
-/* bottom squares desktop */
 .bottom-square-left {
     left: var(--square-width);
     position: absolute;
@@ -280,7 +325,6 @@ nav a.active {
     bottom: var(--vertical-spacing);
 }
 
-/* review links */
 .review-link {
     color: #0000EE;
     text-decoration: underline;
@@ -290,10 +334,9 @@ nav a.active {
 }
 
 /* ======================================
-   MOBILE (max-width: 900px)
+    MOBILE (max-width: 900px)
 ====================================== */
 @media (max-width: 900px) {
-
     html, body {
         overflow-x: hidden;
         overflow-y: auto;
@@ -301,7 +344,6 @@ nav a.active {
         width: 100%;
     }
 
-    /* NAV */
     .nav {
         margin-top: 20px;
         width: 100%;
@@ -318,7 +360,6 @@ nav a.active {
         box-sizing: border-box;
     }
 
-    /* CONTENT */
     .content {
         position: static;
         margin: 30px 20px 100px;
@@ -334,6 +375,11 @@ nav a.active {
         text-align: left;
     }
 
+    .shop-item {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
     .release-list li {
         display: flex;
         align-items: flex-start;
@@ -342,27 +388,11 @@ nav a.active {
         width: 100%;
     }
 
-    .release-list li .bullet {
-        margin-top: 2px;
-        flex-shrink: 0;
-    }
-
     .release-list li .text {
         display: block;
         width: 100%;
     }
 
-    .release-list li .text > span {
-        display: block;
-        line-height: 1.4;
-    }
-
-    #about .text > span {
-        display: inline;
-        width: auto !important;
-    }
-
-    /* POPUP BELOW CONTENT (no internal scroll on mobile, use page scroll) */
     #event-preview {
         position: static !important;
         display: none;
@@ -377,8 +407,6 @@ nav a.active {
         flex-direction: column;
         width: 100%;
         gap: 20px;
-
-        /* cancel desktop scroll behaviour on mobile */
         max-height: none;
         overflow: visible;
         padding-right: 0;
@@ -389,17 +417,6 @@ nav a.active {
         height: auto;
     }
 
-    .preview-details,
-    .preview-videos {
-        width: 100%;
-    }
-
-    .preview-videos iframe {
-        width: 100%;
-        height: 180px;
-    }
-
-    /* FOOTER FIXED */
     .footer {
         position: fixed;
         bottom: 20px;
@@ -412,7 +429,6 @@ nav a.active {
         background: none;
     }
 
-    /* BOTTOM SQUARES */
     .bottom-square {
         position: fixed;
         bottom: 20px;
@@ -423,11 +439,6 @@ nav a.active {
         z-index: 50;
     }
 
-    .bottom-square-left {
-        left: 20px;
-    }
-
-    .bottom-square-right {
-        right: 20px;
-    }
+    .bottom-square-left { left: 20px; }
+    .bottom-square-right { right: 20px; }
 }

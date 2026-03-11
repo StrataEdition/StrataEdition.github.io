@@ -3,14 +3,11 @@
 ========================= */
 
 function showSite() {
-    document.getElementById("landing-container").style.display = "none";
-    document.getElementById("main-site").style.display = "block";
-
-    // Keep desktop non-scrolling at start (scroll is enabled only for popups)
-    const firstNavLink = document.querySelector("nav a:nth-of-type(1)");
-    if (firstNavLink) {
-        firstNavLink.click();
-    }
+    document.getElementById('landing-container').style.display = 'none';
+    document.getElementById('main-site').style.display = 'block';
+    
+    // This line ensures LABEL is the first thing seen
+    showPage('label', document.querySelector('a[onclick*="label"]'));
 }
 
 /* =========================
@@ -58,6 +55,11 @@ function positionPopupBelowList(listSelector) {
 
 /* EVENT DATA */
 const EVENT_DATA = {
+      "EVT-006": {
+        img: "assets/STRATA-6-ENGINE-ROOMS.jpg",
+        venue: "THE ENGINE ROOMS [LONDON]",
+        artists: ["PIETRO BARDINI","MIEDO TOTAL","ENGLAND'S COUNCIL OF LEGISLATION AND GOVERNING BODY OF HYPER REAL SIMULATIONS AND CONSTRUCTS","NEW NAME WORLD TOUR"]
+    },
     "EVT-005": {
         img: "assets/STRATA-5-HORSE-HOSPITAL-POSTER.jpg",
         venue: "THE HORSE HOSPITAL [LONDON]",
@@ -107,6 +109,7 @@ const RELEASE_DATA = {
         title: "UMWELT",
         quotes: [
             `"Onas Ueno’s Umwelt EP is a haunting, immersive journey through ambient and experimental soundscapes. Blending glitch, spectral melodies and neoclassical tones, each track unfolds with emotional depth and textural richness. The EP manages to feel both intimate and alien — like an encounter with the memory of a place you’ve never been to." — <a class='review-link' target="_blank" href="https://igloomag.com/reviews/onas-ueno-umwelt-strata">Igloo Mag</a>`
+            
         ],
         bandcamp: `
 <iframe style="border:0; width:100%; height:120px;"

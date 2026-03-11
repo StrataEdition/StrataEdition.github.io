@@ -6,43 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STRATA</title>
 
-    <!-- ============================
-         PRELOAD IMAGES (fast popup loading)
-    ============================= -->
     <link rel="preload" as="image" href="assets/STRATA-5-HORSE-HOSPITAL-POSTER.jpg">
     <link rel="preload" as="image" href="assets/STRATA-4-ENGINE-ROOMS.jpg">
     <link rel="preload" as="image" href="assets/STRATA-3-RCA.jpg">
     <link rel="preload" as="image" href="assets/STRATA-2-GOLDSMITHS-IKLECTIK-POSTER.jpg">
     <link rel="preload" as="image" href="assets/STRATA-POSTER-A4.jpg">
-    
     <link rel="preload" as="image" href="assets/ParallelRooms1024x1024.jpg">
     <link rel="preload" as="image" href="assets/MemoryRecoilMidRes.jpg">
     <link rel="preload" as="image" href="assets/UmweltArtwork.jpg">
     <link rel="preload" as="image" href="assets/EttrickSitesCover1024x1024.jpg">
     <link rel="preload" as="image" href="assets/ScanDiskCover.jpg">
-
     <link rel="preload" as="image" href="assets/background-image.jpg">
+    <link rel="preload" as="image" href="assets/SHOP1_PR.jpg">
+    <link rel="preload" as="image" href="assets/SHOP2_SD.jpg">
+    <link rel="preload" as="image" href="assets/SHOP3_MR.jpg">
+    <link rel="preload" as="image" href="assets/STRATA-6-ENGINE-ROOMS.jpg">
 
-    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <link rel="preload" as="video" href="assets/LANDING.mp4" type="video/mp4">
 </head>
 
 <body>
 
-<!-- ===== LANDING VIDEO ===== -->
 <div id="landing-container" onclick="showSite()">
-    <video id="landing-video" autoplay muted loop playsinline>
-        <source src="assets/LANDING.mp4" type="video/mp4">
-    </video>
+<video id="landing-video" autoplay muted loop playsinline preload="auto">
+    <source src="assets/LANDING.mp4" type="video/mp4">
+</video>
 </div>
 
-<!-- ===== MAIN SITE ===== -->
 <div id="main-site" style="display:none;">
 
-    <!-- NAVIGATION -->
     <header class="nav">
         <nav>
-            <span class="nav-square nav-left">▮</span>
+            <span class="nav-item">
+                <span class="nav-square nav-left">▮</span>
+                <a onclick="showPage('shop', this)">SHOP</a>
+            </span>
 
             <span class="nav-item">
                 <span class="nav-square">▮</span>
@@ -66,41 +65,77 @@
         </nav>
     </header>
 
-    <!-- PAGE CONTENT -->
     <main class="content">
         <div class="center-block">
 
-            <!-- EVENTS PAGE -->
+           <div id="shop" class="page" style="display:none;">
+    <div class="shop-gallery">
+        
+        <div class="shop-item">
+            <a href="https://strataedition.bandcamp.com/album/parallel-rooms" target="_blank" rel="noopener noreferrer">
+            <img src="assets/SHOP1_PR.jpg">
+            <div class="shop-text-content">
+                <div><span class="event-label">PARALLEL ROOMS</span></div>
+                <span class="shop-desc">Limited-edition transparent brown cassettes, with transparent brown covers and outer graphic O-Cards.</span>
+            </div>
+            </a>
+        </div>
+
+        <div class="shop-item">
+            <a href="https://strataedition.bandcamp.com/album/memory-recoil" target="_blank" rel="noopener noreferrer">
+            <img src="assets/SHOP3_MR.jpg">
+            <div class="shop-text-content">
+                <div><span class="event-label">MEMORY RECOIL</span></div>
+                <span class="shop-desc">Double limited-edition CDs in flip-cases with blue or red vinyl-sticker cover, packaged in anti-static hard drive bags.</span>
+            </div>
+            </a>
+        </div>
+
+         <div class="shop-item">
+            <a href="https://strataedition.bandcamp.com/album/scandisk" target="_blank" rel="noopener noreferrer">
+            <img src="assets/SHOP2_SD.jpg">
+            <div class="shop-text-content">
+                <div><span class="event-label">SCANDISK</span></div>
+                <span class="shop-desc">Limited-edition blue CDs packaged in anti-static hard drive bags.</span>
+            </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+
             <div id="events" class="page">
                 <ul class="release-list">
+                    <li>
+                        <span class="bullet">▮</span>
+                        <span class="text clickable" onclick="previewEvent('EVT-006')">
+                            <span>EVT-005</span><span>STRATA 6</span><span>22.01.26</span><span>THE ENGINE ROOMS [LONDON]</span>
+                        </span>
+                    </li>
                     <li>
                         <span class="bullet">▮</span>
                         <span class="text clickable" onclick="previewEvent('EVT-005')">
                             <span>EVT-005</span><span>STRATA 5</span><span>22.11.25</span><span>THE HORSE HOSPITAL [LONDON]</span>
                         </span>
                     </li>
-
                     <li>
                         <span class="bullet">▮</span>
                         <span class="text clickable" onclick="previewEvent('EVT-004')">
                             <span>EVT-004</span><span>STRATA 4</span><span>17.07.25</span><span>THE ENGINE ROOMS [LONDON]</span>
                         </span>
                     </li>
-
                     <li>
                         <span class="bullet">▮</span>
                         <span class="text clickable" onclick="previewEvent('EVT-003')">
                             <span>EVT-003</span><span>ETTRICK SITES LAUNCH</span><span>18.01.25</span><span>RCA VISLAB [LONDON]</span>
                         </span>
                     </li>
-
                     <li>
                         <span class="bullet">▮</span>
                         <span class="text clickable" onclick="previewEvent('EVT-002')">
                             <span>EVT-002</span><span>SCANDISK LAUNCH</span><span>06.12.24</span><span>GOLDSMITHS SPATLAB [LONDON]</span>
                         </span>
                     </li>
-
                     <li>
                         <span class="bullet">▮</span>
                         <span class="text clickable" onclick="previewEvent('EVT-001')">
@@ -110,7 +145,6 @@
                 </ul>
             </div>
 
-            <!-- ARTISTS PAGE -->
             <div id="artists" class="page" style="display:none;">
                 <ul class="release-list">
                     <li>
@@ -148,13 +182,12 @@
                 </ul>
             </div>
 
-            <!-- LABEL PAGE -->
             <div id="label" class="page" style="display:none;">
                 <ul class="release-list">
                     <li>
                         <span class="bullet">▮</span>
                         <span class="text clickable" onclick="previewRelease('STR-005')">
-                            <span>STR-005</span><span>PARALLEL ROOMS</span><span>20.03.26</span><span>PIETRO BARDINI</span>
+                            <span>STR-005</span><span>PARALLEL ROOMS</span><span>20.06.26</span><span>PIETRO BARDINI</span>
                         </span>
                     </li>
                     <li>
@@ -184,7 +217,6 @@
                 </ul>
             </div>
 
-            <!-- ABOUT PAGE -->
             <div id="about" class="page" style="display:none;">
                 <ul class="release-list">
                     <li>
@@ -193,27 +225,22 @@
                             <span>STRATA is a label focused on promoting experimental audio-visual events.</span>
                         </span>
                     </li><br>
-
                     <li>
                         <span class="bullet">▮</span>
                         <span class="text clickable"><a target="_blank" href="https://strataedition.bandcamp.com/">BANDCAMP</a></span>
                     </li>
-
                     <li>
                         <span class="bullet">▮</span>
                         <span class="text clickable"><a target="_blank" href="https://soundcloud.com/strata-edition">SOUNDCLOUD</a></span>
                     </li>
-
                     <li>
                         <span class="bullet">▮</span>
                         <span class="text clickable"><a target="_blank" href="https://instagram.com/strata.edition">INSTAGRAM</a></span>
                     </li><br>
-
                     <li>
                         <span class="bullet">▮</span>
                         <span class="text clickable"><a href="mailto:strata.edition@gmail.com">strata.edition@gmail.com</a></span>
                     </li>
-
                     <li>
                         <span class="bullet">▮</span>
                         <span class="text"><span>LONDON, UK</span></span>
@@ -228,7 +255,6 @@
 
         </div>
 
-        <!-- POPUP -->
         <div id="event-preview">
             <div class="preview-box">
                 <img id="preview-img">
@@ -239,11 +265,9 @@
 
     </main>
 
-    <!-- FOOTER DECORATION -->
     <span class="bottom-square bottom-square-left">▮</span>
     <span class="bottom-square bottom-square-right">▮</span>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <div class="logo">
             <video id="footer-logo" muted playsinline>
@@ -257,6 +281,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
