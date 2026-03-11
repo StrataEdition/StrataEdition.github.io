@@ -442,3 +442,21 @@ nav a.active {
     .bottom-square-left { left: 20px; }
     .bottom-square-right { right: 20px; }
 }
+@media (max-width: 900px) {
+    /* 1. Control the vertical gap between the items */
+    .shop-gallery {
+        gap: 20px; /* Reduced from 40px - change this value to suit */
+        justify-content: center;
+    }
+
+    /* 2. Remove the large bottom margin you had on desktop links */
+    .shop-item a {
+        margin-bottom: 10px; /* Reduced from 30px */
+    }
+
+    /* 3. Tighten the space between the image and the text */
+    .shop-text-content {
+        margin-top: 10px; /* Reduced from 15px */
+        gap: 4px;        /* Space between Title and Description */
+    }
+}
