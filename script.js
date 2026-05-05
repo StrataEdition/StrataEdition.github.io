@@ -110,14 +110,14 @@ const RELEASE_DATA = {
     "STR-005": {
         img: "assets/ParallelRooms1024x1024.jpg",
         title: "PARALLEL ROOMS",
-        quotes: [],
+        quotes: ['Parallel Rooms is a two‑track composition for strings and electronics recorded in 2024-25. The pieces came together by recording improvisations guided by a set of graphic notations and arranged harmonic motifs, editing and layering them, then re‑amping and improvising again over those takes.'],
         bandcamp: `<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1255637387/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://strataedition.bandcamp.com/album/parallel-rooms">Parallel Rooms by Pietro Bardini</a></iframe>`,
         youtube: []
     },
     "STR-004": {
         img: "assets/MemoryRecoilMidRes.jpg",
         title: "MEMORY RECOIL",
-        quotes: ['Shifting from swirling sound design to teetering piano motifs, Memory Recoil ventures deeper into the heart of the hard drive...'],
+        quotes: ['Shifting from swirling sound design to teetering piano motifs, Memory Recoil ventures deeper into the heart of the hard drive, where the haunted remnants of compressed data are mechanically recombined into uncanny, heartfelt confabulations.'],
         bandcamp: `<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=707364654/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/" seamless></iframe>`,
         youtube: ["iX9x_s5Wp7E"]
     },
