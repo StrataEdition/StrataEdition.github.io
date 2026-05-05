@@ -124,21 +124,22 @@ const RELEASE_DATA = {
     "STR-003": {
         img: "assets/UmweltArtwork.jpg",
         title: "UMWELT",
-        quotes: [`"Onas Ueno’s Umwelt EP is a haunting, immersive journey..."`],
+        quotes: [`"Onas Ueno's Umwelt EP is a haunting, immersive journey through ambient and experimental soundscapes. Blending glitch, spectral melodies, and neoclassical tones, each track unfolds with emotional depth and textural richness." — <a class='review-link' target="_blank" href="https://igloomag.com/reviews/onas-ueno-umwelt-strata">Igloo Mag</a>`],
         bandcamp: `<iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2963886556/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=none/transparent=true/" seamless></iframe>`,
         youtube: []
     },
     "STR-002": {
         img: "assets/EttrickSitesCover1024x1024.jpg",
         title: "ETTRICK SITES",
-        quotes: [`"Named after Loch Ettrick in the Scottish Borders..."`],
+        quotes: [`"Named after Loch Ettrick in Scotland’s Dumfries and Galloway where it was created, this new AV collaboration evokes a primeval digital universe." — <a class='review-link' target="_blank" href="https://www.thewire.co.uk">The Wire</a>`],
         bandcamp: `<iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=4057023817/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=none/transparent=true/" seamless></iframe>`,
         youtube: ["AvJs1v066kA", "aFJNOryu5lU"]
     },
     "STR-001": {
         img: "assets/ScanDiskCover.jpg",
         title: "SCANDISK",
-        quotes: [`"Snapshots of voices and digital debris..."`],
+        quotes: [ `"Snapshots of voices and digital debris conjuring up a journey through London’s nocturnal streets" — <a class='review-link' target="_blank" href="https://thequietus.com/quietus-reviews/partial-defrag-scandisk-review/">The Quietus</a>`,
+            `"Prickly compositions pulled from the dregs of hard drive compression" — <a class='review-link' target="_blank" href="https://www.ninaprotocol.com/articles/partial-defrag-scandisk">NINA Protocol</a>`],
         bandcamp: `<iframe style="border:0; width:100%; height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1119581680/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=none/transparent=true/" seamless></iframe>`,
         youtube: ["npcC32gz2KQ", "mrEraBWjmkA", "3WujZG_iTCk"]
     }
