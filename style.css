@@ -1751,3 +1751,48 @@ body::-webkit-scrollbar {
     }
 
 }
+
+
+/* =========================================================
+   SQUARES DRAWN WITH CSS (IDENTICAL IN EVERY BROWSER)
+========================================================= */
+
+/*
+    Azeret Mono has no ▮ character, so each browser used to borrow it
+    from a different font. The character in the HTML is now hidden and
+    a plain CSS rectangle is drawn in its place, so the squares are the
+    same size and shape everywhere and follow the light/dark theme.
+
+    Change --square-w / --square-h to resize every square at once.
+*/
+
+:root {
+    --square-w: 6px;
+    --square-h: 10px;
+}
+
+.square,
+.nav-square,
+.bullet,
+.bottom-square {
+    /* hide the ▮ character itself */
+    font-size: 0;
+    line-height: 0;
+    color: transparent;
+
+    overflow: visible;
+}
+
+.square::before,
+.nav-square::before,
+.bullet::before,
+.bottom-square::before {
+    content: "";
+
+    display: block;
+
+    width: var(--square-w);
+    height: var(--square-h);
+
+    background: var(--fg);
+}
