@@ -3,7 +3,7 @@
 ========================================================= */
 
 /*
-    Served from /assets/fonts so every browser (including Safari on
+    Served from /assets so every browser (including Safari on
     iPhone) uses this exact file instead of a system fallback.
 
     Variable font: one file covers every weight.
@@ -13,8 +13,8 @@
     font-family: 'Azeret Mono';
 
     src:
-        url("assets/fonts/AzeretMono-Variable.woff") format("woff"),
-        url("assets/fonts/AzeretMono-Variable.ttf") format("truetype");
+        url("assets/AzeretMono-Variable.woff") format("woff"),
+        url("assets/AzeretMono-Variable.ttf") format("truetype");
 
     font-weight: 100 900;
     font-style: normal;
