@@ -754,6 +754,23 @@ if (footerVideo) {
 
         root.setAttribute("data-theme", next);
 
+        /* Tint the browser's own bars to match (iOS Safari / Android). */
+        const meta =
+            document.querySelector('meta[name="theme-color"]');
+
+        if (meta) {
+            meta.setAttribute(
+                "content",
+                next === "dark" ? "#000000" : "#ffffff"
+            );
+        }
+
+        /* Force one clean repaint so no old-colour blocks are left behind. */
+        window.requestAnimationFrame(() => {
+            root.style.backgroundColor = "";
+            void root.offsetHeight;
+        });
+
         try {
             localStorage.setItem("theme-v2", next);
         } catch (e) {}

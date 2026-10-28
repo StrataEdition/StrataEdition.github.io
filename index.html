@@ -7,6 +7,8 @@
 
     <title>STRATA</title>
 
+    <meta name="theme-color" content="#ffffff">
+
     <!-- Apply the saved theme before first paint (default: light). -->
     <script>
         (function () {
@@ -15,6 +17,9 @@
                 theme = localStorage.getItem("theme-v2") || "light";
             } catch (e) {}
             document.documentElement.setAttribute("data-theme", theme);
+
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute("content", theme === "dark" ? "#000000" : "#ffffff");
         })();
     </script>
 

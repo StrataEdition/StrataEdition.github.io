@@ -1348,9 +1348,16 @@ html::before {
     content: "";
 
     position: fixed;
-    inset: 0;
+
+    /* Extends past the screen edges so it also sits under the iOS toolbars. */
+    top: -120px;
+    bottom: -120px;
+    left: 0;
+    right: 0;
 
     z-index: -1;
+
+    background-color: var(--bg);
 
     pointer-events: none;
 
@@ -1785,4 +1792,33 @@ body::-webkit-scrollbar {
     height: var(--square-h);
 
     background: var(--fg);
+}
+
+
+
+/* =========================================================
+   iOS SAFARI: STOP STALE COLOUR BLOCKS WHEN THE THEME CHANGES
+========================================================= */
+
+/*
+    Safari can leave parts of the screen painted in the OLD theme colour
+    (black or white blocks) after the colours change. Giving the fixed
+    layers their own compositing layer makes them repaint as a whole.
+*/
+
+html::before,
+.footer,
+#theme-toggle {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Theme change should be instant, never a half-painted fade. */
+html,
+body,
+html::before {
+    transition: none !important;
 }
