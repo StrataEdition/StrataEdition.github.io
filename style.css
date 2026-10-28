@@ -1400,3 +1400,77 @@ html::before {
     }
 
 }
+
+
+/* =========================================================
+   NO POPUP SCROLLBAR / HIDDEN PAGE SCROLLBAR
+========================================================= */
+
+/* The popup never scrolls on its own; the whole page scrolls instead. */
+.preview-box {
+    max-height: none;
+
+    overflow: visible;
+}
+
+/* Page still scrolls (wheel, trackpad, touch, keyboard) but shows no bar. */
+html,
+body {
+    scrollbar-width: none;           /* Firefox */
+    -ms-overflow-style: none;        /* old Edge */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;                   /* Chrome, Safari */
+
+    width: 0;
+    height: 0;
+}
+
+
+/* =========================================================
+   VIDEOS TWO COLUMNS WIDE (DESKTOP)
+========================================================= */
+
+@media (min-width: 901px) {
+
+    /* Columns 3 and 4: under EVENTS and ARTISTS. */
+    .preview-videos {
+        grid-column: 3 / 5;
+    }
+
+}
+
+
+/* =========================================================
+   INVERT BUTTON ALWAYS ON TOP
+========================================================= */
+
+/*
+    The popup (z-index 100) can extend over the bottom-left of the
+    page, which was covering the word INVERT. Keep the button above it.
+*/
+#theme-toggle {
+    z-index: 200;
+}
+
+
+/* =========================================================
+   SHOP: SPACE BETWEEN ITEMS (DESKTOP)
+========================================================= */
+
+/*
+    Padding (not a grid gap) keeps every item's left edge exactly on
+    the nav / content columns, same 20px spacing as the popup.
+*/
+
+@media (min-width: 901px) {
+
+    .shop-item {
+        box-sizing: border-box;
+
+        padding-right: 20px;
+    }
+
+}

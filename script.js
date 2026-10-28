@@ -566,6 +566,8 @@ document.addEventListener("click", event => {
         previewBox.style.display = "none";
 
         setScrollState(true);
+
+        window.scrollTo(0, 0);
     }
 });
 
@@ -586,6 +588,8 @@ function hidePreview(force = false) {
         previewBox.style.display = "none";
 
         setScrollState(true);
+
+        window.scrollTo(0, 0);
     }
 }
 
