@@ -1595,3 +1595,31 @@ body::-webkit-scrollbar {
     }
 
 }
+
+
+/* =========================================================
+   FOOTER LOGO: 60px, RIGHT EDGE ON THE ABOUT SQUARE'S EDGE
+========================================================= */
+
+:root {
+    --footer-logo-width: 60px;
+}
+
+/*
+    The nav's ABOUT square sits 16px outside the page margin, so the
+    outermost right edge of the nav is (margin - 16px) from the screen
+    edge. The logo now ends on that same line, mirroring the INVERT
+    square on the left.
+*/
+.footer {
+    padding-right: calc(var(--square-width) - 16px);
+}
+
+@media (max-width: 900px) {
+
+    .footer {
+        /* mobile nav: 20px padding - 16px */
+        padding-right: 4px;
+    }
+
+}
