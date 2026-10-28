@@ -1509,3 +1509,89 @@ body::-webkit-scrollbar {
 :root[data-theme="light"] #footer-logo {
     filter: invert(1);
 }
+
+
+/* =========================================================
+   INVERT BUTTON: SAME ALIGNMENT AS THE NAV SQUARES
+========================================================= */
+
+/*
+    Built exactly like a nav item: the text sits in normal flow and the
+    square is absolutely positioned at top: 0, 16px to its left.
+    That keeps the square and the word on the same line.
+*/
+
+#theme-toggle {
+    display: block;
+
+    line-height: normal;
+
+    /* room for the square (10px) + 6px gap */
+    padding-left: 16px;
+}
+
+#theme-toggle .nav-square {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 10px;
+    height: 10px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: none;
+}
+
+#theme-toggle .label {
+    display: inline-block;
+
+    line-height: normal;
+}
+
+
+/* =========================================================
+   FOOTER LOGO: SMALLER + RIGHT-ALIGNED UNDER "ABOUT"
+========================================================= */
+
+:root {
+    --footer-logo-width: 44px;
+}
+
+.footer {
+    /* Same baseline as the INVERT button. */
+    bottom: 30px;
+
+    left: 0;
+    right: 0;
+
+    width: auto;
+
+    display: flex;
+    justify-content: flex-end;
+
+    /* Right edge lines up with the right edge of the word ABOUT. */
+    padding-right: var(--square-width);
+
+    pointer-events: none;
+}
+
+#footer-logo {
+    width: var(--footer-logo-width);
+
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+
+    .footer {
+        bottom: 20px;
+
+        /* Mobile nav has 20px side padding. */
+        padding-right: 20px;
+    }
+
+}
