@@ -1507,33 +1507,23 @@ body::-webkit-scrollbar {
 
 
 /* =========================================================
-   FOOTER LOGO: NO BOX
+   FOOTER LOGO: NO VISIBLE BOX
 ========================================================= */
 
 /*
-    The logo video is white text on a black rectangle. Blend modes
-    make the rectangle disappear so only the letters show.
+    The logo video is white text on a black rectangle.
 
-    DARK  (default): video stays as-is; "screen" makes black vanish,
-                     leaving white letters on the black page.
-    LIGHT:           video is inverted (white box, black letters);
-                     "multiply" makes white vanish, leaving black
-                     letters on the white page.
+    DARK  (inverted): shown as-is -> black rectangle on a black page,
+                      so only the white letters are visible.
+    LIGHT (standard): colours flipped -> white rectangle on a white page,
+                      so only the black letters are visible.
 
-    The blend is set on .footer (not the video) because .footer is
-    its own stacking context and would otherwise isolate the video.
+    No blend modes are used: mix-blend-mode on a fixed element makes
+    iOS Safari paint large black/white blocks when the theme changes.
 */
-
-.footer {
-    mix-blend-mode: screen;
-}
 
 #footer-logo {
     filter: none;
-}
-
-:root[data-theme="light"] .footer {
-    mix-blend-mode: multiply;
 }
 
 :root[data-theme="light"] #footer-logo {
