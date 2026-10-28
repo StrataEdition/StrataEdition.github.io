@@ -167,6 +167,23 @@ function positionPopupBelowList(listSelector) {
 
 const EVENT_DATA = {
 
+        "EVT-007": {
+
+        img:
+            "assets/EVENT007_SPANNERS_2026_GRAINY.png",
+
+        venue:
+            "SPANNERS [LONDON]",
+
+        artists: [
+            "PIETRO BARDINI",
+            "ONAS UENO",
+            "CASTLE MAOL",
+            "RẮN CẠP ĐUÔI"
+        ]
+    },
+
+
     "EVT-004": {
 
         img:
@@ -295,7 +312,7 @@ const RELEASE_DATA = {
         "STR-006": {
 
         img:
-            "assets/ParallelRooms1024x1024.jpg",
+            "assets/fever-cover.png",
 
         title:
             "FEVER BINDS THE IMAGE",
@@ -305,7 +322,7 @@ const RELEASE_DATA = {
         ],
 
         bandcamp:
-            `<iframe style="border:0;width:100%;height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1255637387/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://strataedition.bandcamp.com/album/parallel-rooms">Parallel Rooms by Pietro Bardini</a></iframe>`,
+            `<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=340048183/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://strataedition.bandcamp.com/album/fever-binds-the-image">Fever Binds The Image by V/A</a></iframe>`,
 
         youtube: []
     },
