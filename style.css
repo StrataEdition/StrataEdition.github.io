@@ -1,462 +1,1402 @@
-/* ======================================
-    GLOBAL
-====================================== */
-html, body {
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+html,
+body {
     margin: 0;
     padding: 0;
+
     font-size: 10px;
     font-family: 'Azeret Mono', monospace;
-    color: black;
-    overflow: hidden; /* desktop = static layout */
-    height: 100%;
 
-    /* BACKGROUND IMAGE */
-    background-color: white;
-    background-image: url("assets/background-image.jpg");
-    background-size: contain;          /* full image visible */
-    background-position: top center;   /* keep the top visible */
-    background-repeat: no-repeat;
+    color: var(--fg);
+    background-color: var(--bg);
+
+    overflow: hidden;
+
+    height: 100%;
 }
 
-/* ======================================
-    SCALE
-====================================== */
+
 :root {
+    /* THEME: dark (inverted) is the default */
+    --fg: #fff;
+    --bg: #000;
+    --link: #7f9bff;
+    --invert: 1;
+
+    color-scheme: dark;
+
     --square-width: 2%;
     --vertical-spacing: 180px;
+
+    /*
+        MASTER PAGE WIDTH
+
+        Everything on desktop uses this exact width.
+    */
+    --page-width: calc(100% - (var(--square-width) * 2));
 }
 
-/* ======================================
-    CURSOR
-====================================== */
-.text.clickable,
-.text[onclick] {
-    cursor: pointer;
-}
 
-/* ======================================
-    LINKS
-====================================== */
-a {
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
-    transition: 0.15s ease;
-}
+/* =========================================================
+   SQUARES
+========================================================= */
 
-/* ======================================
-    UNIVERSAL SQUARES
-====================================== */
 .square,
 .nav-square,
 .bullet,
 .bottom-square {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
     width: 10px;
     height: 10px;
-    line-height: 10px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 10px;
 }
 
-/* ======================================
-    LANDING VIDEO
-====================================== */
+
+/* =========================================================
+   LANDING
+========================================================= */
+
 #landing-container {
     position: fixed;
+
     inset: 0;
-    background: white;
+
+    width: 100%;
+    height: 100vh;
+
+    background: var(--bg);
+
     z-index: 10;
+
     cursor: pointer;
 }
-#landing-video {
+
+
+#landing-container video {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
 }
 
-/* ======================================
-    NAV (DESKTOP)
-====================================== */
+
+/* =========================================================
+   MAIN SITE
+========================================================= */
+
+#main-site {
+    display: none;
+
+    width: 100%;
+    min-height: 100%;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
 .nav {
     width: 100%;
-    text-align: center;
-    margin-top: var(--vertical-spacing); 
+
+    margin-top: var(--vertical-spacing);
+
     position: relative;
+
     z-index: 5;
 }
 
+
+/*
+    FIVE EQUAL NAVIGATION COLUMNS
+
+    IMPORTANT:
+    There is NO column gap.
+
+    This makes each navigation anchor correspond
+    directly to one of the five equal page divisions.
+*/
+
 .nav nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: calc(100% - (var(--square-width) * 2));
+    width: var(--page-width);
+
     margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    column-gap: 0;
+
+    align-items: start;
 }
+
+
+/* =========================================================
+   NAVIGATION ITEMS
+========================================================= */
 
 .nav-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.nav-square {
     position: relative;
-    top: -1px;
+
+    display: block;
+
+    width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
 }
 
-.nav-item a:hover,
-nav a.active {
-    background: black;
-    color: white;
-}
 
-/* ======================================
-    CONTENT (DESKTOP)
-====================================== */
-.content {
-    position: absolute;
-    top: calc(var(--vertical-spacing) + 100px);
-    left: var(--square-width);
-    right: var(--square-width);
-    bottom: calc(var(--vertical-spacing) + 40px);
+/*
+    COLUMN 1 — SHOP
+*/
 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
+.nav-item:nth-child(1) {
+    grid-column: 1;
 
-.center-block {
     text-align: left;
 }
 
-/* ======================================
-    RELEASE LIST (DESKTOP)
-====================================== */
-.release-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+
+/*
+    COLUMN 2 — LABEL
+*/
+
+.nav-item:nth-child(2) {
+    grid-column: 2;
+
+    text-align: left;
 }
 
-.release-list li {
-    display: flex;
+
+/*
+    COLUMN 3 — EVENTS
+*/
+
+.nav-item:nth-child(3) {
+    grid-column: 3;
+
+    text-align: left;
+}
+
+
+/*
+    COLUMN 4 — ARTISTS
+*/
+
+.nav-item:nth-child(4) {
+    grid-column: 4;
+
+    text-align: left;
+}
+
+
+/*
+    COLUMN 5 — ABOUT
+
+    The fifth column remains exactly the same width
+    as the other four columns.
+
+    Only the text is right-aligned within it.
+*/
+
+.nav-item:nth-child(5) {
+    grid-column: 5;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   NAVIGATION LINKS
+========================================================= */
+
+.nav-item > a {
+    display: inline-block;
+
+    color: var(--fg);
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+
+/*
+    SHOP / LABEL / EVENTS / ARTISTS
+*/
+
+.nav-item:nth-child(1) > a,
+.nav-item:nth-child(2) > a,
+.nav-item:nth-child(3) > a,
+.nav-item:nth-child(4) > a {
+    text-align: left;
+}
+
+
+/*
+    ABOUT
+*/
+
+.nav-item:nth-child(5) > a {
+    text-align: right;
+}
+
+
+/* =========================================================
+   NAVIGATION SQUARES
+========================================================= */
+
+/*
+    Squares are visual markers only.
+
+    They are positioned absolutely so they NEVER
+    participate in calculating the column widths.
+*/
+
+.nav-item > .nav-square {
+    position: absolute;
+
+    top: 0;
+
+    width: 10px;
+    height: 10px;
+
+    display: inline-flex;
+
     align-items: center;
-    gap: 6px;
+    justify-content: center;
+
+    pointer-events: none;
+}
+
+
+/*
+    SHOP / LABEL / EVENTS / ARTISTS
+
+    Square sits immediately to the LEFT
+    of the navigation text.
+*/
+
+.nav-item:nth-child(1) > .nav-square,
+.nav-item:nth-child(2) > .nav-square,
+.nav-item:nth-child(3) > .nav-square,
+.nav-item:nth-child(4) > .nav-square {
+    left: -16px;
+}
+
+
+/*
+    ABOUT
+
+    Square sits immediately to the RIGHT
+    of the navigation text.
+*/
+
+.nav-item:nth-child(5) > .nav-square {
+    right: -16px;
+}
+
+
+/* =========================================================
+   NAVIGATION ACTIVE / HOVER
+========================================================= */
+
+.nav a.active,
+.nav a:hover {
+    background: var(--fg);
+
+    color: var(--bg);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.content {
+    position: absolute;
+
+    top: calc(var(--vertical-spacing) + 100px);
+
+    left: var(--square-width);
+    right: var(--square-width);
+
+    bottom: calc(var(--vertical-spacing) + 40px);
+
+    display: block;
+}
+
+
+.center-block {
+    width: 100%;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   RELEASE LIST
+========================================================= */
+
+.release-list {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   FIVE-COLUMN CONTENT GRID
+========================================================= */
+
+/*
+    EXACTLY THE SAME FIVE COLUMNS AS NAVIGATION.
+
+    No gap means the column boundaries are identical
+    to the navigation boundaries.
+*/
+
+.release-list li {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+
     margin-bottom: 2px;
 }
 
-.bullet {
-    position: relative;
+
+/* =========================================================
+   BULLET
+========================================================= */
+
+/*
+    Bullet is completely outside the five-column system.
+
+    It therefore cannot alter column widths.
+*/
+
+.release-list li > .bullet {
+    position: absolute;
+
+    left: -16px;
+
     top: -1px;
+
+    width: 10px;
+    height: 10px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
 }
 
-/* ======================================
-    TEXT COLUMNS (DESKTOP)
-====================================== */
+
+/* =========================================================
+   TEXT
+========================================================= */
+
 .text {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+    display: grid;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    column-gap: 0;
+    align-items: start;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-#label .text > span,
-#artists .text > span,
-#events .text > span {
-    width: 200px;
-    display: inline-block;
+
+/* =========================================================
+   CONTENT COLUMN ASSIGNMENTS
+========================================================= */
+
+.text > span:nth-child(1) {
+    grid-column: 1;
 }
 
-#about .text > span {
-    width: auto;
-    display: inline;
+
+.text > span:nth-child(2) {
+    grid-column: 2;
 }
 
-.text.clickable:hover,
-.text.clickable:hover a {
-    background: black;
-    color: white;
+
+.text > span:nth-child(3) {
+    grid-column: 3;
 }
 
-/* ======================================
-    POPUP (DESKTOP)
-====================================== */
+
+.text > span:nth-child(4) {
+    grid-column: 4;
+}
+
+
+.text > span:nth-child(5) {
+    grid-column: 5;
+}
+
+
+/*
+    Direct links inside .text belong to column 1.
+*/
+
+.text > a {
+    grid-column: 1;
+
+    display: block;
+
+    min-width: 0;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: clip;
+}
+
+
+/* =========================================================
+   COLUMN CONTENT
+========================================================= */
+
+.text > span {
+    display: block;
+
+    min-width: 0;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: clip;
+}
+
+
+/* =========================================================
+   CLICKABLE
+========================================================= */
+
+.text.clickable {
+    cursor: pointer;
+}
+
+.text.clickable:hover {
+    background: var(--fg);
+    color: var(--bg);
+}
+
+
+.text a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+.text.clickable > span:hover,
+.text.clickable > span:hover a,
+.text a:hover {
+    background: var(--fg);
+
+    color: var(--bg);
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-text > .about-wide {
+    grid-column: 1 / 6;
+
+    white-space: normal;
+
+    overflow: visible;
+}
+
+
+.about-spacer {
+    height: 10px;
+
+    margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   EVENT PREVIEW
+========================================================= */
+
 #event-preview {
     display: none;
+
     position: absolute;
-    top: calc(20% + 20px); 
+
+    top: calc(20% + 20px);
+
     left: 50%;
+
     transform: translateX(-55%);
+
     z-index: 100;
-    padding-bottom: 100px; 
+
+    padding-bottom: 100px;
 }
+
 
 .preview-box {
     display: flex;
+
+    flex-direction: row;
+
     gap: 40px;
+
     max-width: 1200px;
+
+    max-height: calc(100vh - 220px);
+
     align-items: flex-start;
-    max-height: calc(100vh - 220px); 
+
     overflow-y: auto;
-    padding-right: 10px; 
+
+    padding-right: 10px;
 }
 
-.preview-box img {
+
+#preview-img {
     width: 300px;
+
+    height: auto;
+
     object-fit: cover;
+
+    flex: 0 0 300px;
 }
+
 
 .preview-details {
     width: 340px;
+
     line-height: 1.4;
+
+    flex: 0 0 340px;
 }
+
 
 .preview-videos {
     width: 340px;
+
     display: flex;
+
     flex-direction: column;
+
     gap: 20px;
+
+    flex: 0 0 340px;
 }
+
 
 .preview-videos iframe {
     width: 100%;
+
     height: 200px;
+
     border: none;
 }
 
-/* GLOBAL LABEL STYLE */
+
 .event-label {
-    background: black;
-    color: white;
-    padding: 0;
-    line-height: 1em;
     display: inline-block;
+
+    background: var(--fg);
+
+    color: var(--bg);
+
+    line-height: 1em;
+
     margin-bottom: 5px;
 }
 
-/* ======================================
-    SHOP GALLERY
-====================================== */
+
+/* =========================================================
+   SHOP
+========================================================= */
+
+/*
+    SHOP ALSO USES THE SAME FIVE-COLUMN SYSTEM.
+*/
+
 .shop-gallery {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    column-gap: 0;
+
+    width: 100%;
+
+    align-items: start;
 }
 
+
 .shop-item {
-    width: 300px; 
+    width: 100%;
+
     display: flex;
+
     flex-direction: column;
 }
 
+
 .shop-item a {
-    margin-bottom: 30px; 
     display: block;
+
+    margin-bottom: 30px;
+
     text-decoration: none;
-    color: inherit;
+
+    color: var(--fg);
 }
 
+
 .shop-item img {
-    width: 100%;
-    height: auto;
     display: block;
+
+    width: 100%;
+
+    height: auto;
 }
+
 
 .shop-text-content {
     display: flex;
+
     flex-direction: column;
-    gap: 8px; 
+
+    gap: 8px;
+
     margin-top: 15px;
 }
 
-/* OVERRIDE: Shop labels are plain by default */
-.shop-item .event-label {
+
+.shop-text-content .event-label {
     background: transparent;
-    color: black;
-    margin-bottom: 0;
-    transition: background 0.1s ease, color 0.1s ease;
+
+    color: var(--fg);
+
+    margin: 0;
 }
 
-/* HOVER EFFECT: Only title highlights */
-.shop-item:hover .event-label {
-    background: black;
-    color: white;
+
+.shop-item:hover .shop-title {
+    background: var(--fg);
+
+    color: var(--bg);
 }
+
 
 .shop-desc {
     font-size: 10px;
+
     line-height: 1.4;
 }
 
-/* ======================================
-    FOOTER (DESKTOP)
-====================================== */
+
+/* =========================================================
+   REVIEW LINKS
+========================================================= */
+
+.review-link {
+    color: blue;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
 .footer {
-    text-align: center;
     position: fixed;
+
     bottom: 30px;
+
+    left: 0;
+
     width: 100%;
+
     z-index: 50;
 }
 
-.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-}
 
 #footer-logo {
+    display: block;
+
     width: 80px;
+
     height: auto;
+
+    margin: 0 auto;
 }
+
+
+/* =========================================================
+   BOTTOM SQUARES
+========================================================= */
+
+.bottom-square {
+    position: absolute;
+
+    bottom: var(--vertical-spacing);
+}
+
 
 .bottom-square-left {
     left: var(--square-width);
-    position: absolute;
-    bottom: var(--vertical-spacing);
 }
+
+
 .bottom-square-right {
     right: var(--square-width);
-    position: absolute;
-    bottom: var(--vertical-spacing);
 }
 
-.review-link {
-    color: #0000EE;
-    text-decoration: underline;
-}
-.review-link:hover {
-    color: #66A3FF;
-}
 
-/* ======================================
-    MOBILE (max-width: 900px)
-====================================== */
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media (max-width: 900px) {
-    html, body {
+
+    html,
+    body {
         overflow-x: hidden;
+
         overflow-y: auto;
+
         height: auto;
+
         width: 100%;
     }
+
+
+    /* =====================================================
+       MOBILE NAV
+    ===================================================== */
 
     .nav {
         margin-top: 20px;
-        width: 100%;
     }
+
 
     .nav nav {
         width: 100%;
+
         padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 16px;
+
         box-sizing: border-box;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        flex-wrap: wrap;
+
+        gap: 16px;
     }
+
+
+    .nav-item {
+        position: relative;
+
+        display: block;
+
+        width: auto;
+
+        min-width: 0;
+    }
+
+
+    .nav-item:nth-child(n) {
+        grid-column: auto;
+    }
+
+
+    /*
+        Mobile navigation returns to normal flex behaviour.
+    */
+
+    .nav-item:nth-child(1),
+    .nav-item:nth-child(2),
+    .nav-item:nth-child(3),
+    .nav-item:nth-child(4),
+    .nav-item:nth-child(5) {
+        text-align: left;
+    }
+
+
+    .nav-item:nth-child(5) > a {
+        width: auto;
+
+        text-align: left;
+    }
+
+
+    .nav-item > .nav-square {
+        position: absolute;
+    }
+
+
+    .nav-item:nth-child(1) > .nav-square,
+    .nav-item:nth-child(2) > .nav-square,
+    .nav-item:nth-child(3) > .nav-square,
+    .nav-item:nth-child(4) > .nav-square {
+        left: -16px;
+    }
+
+
+    .nav-item:nth-child(5) > .nav-square {
+        right: -16px;
+
+        left: auto;
+    }
+
+
+    /* =====================================================
+       MOBILE CONTENT
+    ===================================================== */
 
     .content {
         position: static;
-        margin: 30px 20px 100px;
-        padding: 0;
-        width: calc(100% - 40px);
-        text-align: left;
-        box-sizing: border-box;
+
         display: block;
+
+        width: calc(100% - 40px);
+
+        margin: 30px 20px 100px;
+
+        box-sizing: border-box;
     }
+
 
     .center-block {
         width: 100%;
-        text-align: left;
     }
+
+
+    /* =====================================================
+       MOBILE FIVE-COLUMN ROWS
+    ===================================================== */
+
+    .release-list li {
+        position: relative;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(5, minmax(0, 1fr));
+
+        column-gap: 6px;
+
+        width: 100%;
+
+        margin-bottom: 5px;
+
+        align-items: start;
+    }
+
+
+    .release-list li > .bullet {
+        left: -16px;
+
+        top: -1px;
+    }
+
+
+    .text > span {
+        white-space: normal;
+
+        overflow-wrap: anywhere;
+
+        word-break: normal;
+    }
+
+
+    .text > a {
+        white-space: normal;
+
+        overflow-wrap: anywhere;
+    }
+
+
+    /* =====================================================
+       ABOUT MOBILE
+    ===================================================== */
+
+    .about-text > .about-wide {
+        grid-column: 1 / 6;
+
+        white-space: normal;
+    }
+
+
+    /* =====================================================
+       SHOP MOBILE
+    ===================================================== */
+
+    .shop-gallery {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 20px;
+
+        width: 100%;
+    }
+
 
     .shop-item {
         width: 100%;
+
         margin-bottom: 20px;
     }
 
-    .release-list li {
-        display: flex;
-        align-items: flex-start;
-        gap: 6px;
-        margin-bottom: 5px;
-        width: 100%;
+
+    .shop-item a {
+        margin-bottom: 10px;
     }
 
-    .release-list li .text {
-        display: block;
-        width: 100%;
+
+    .shop-text-content {
+        margin-top: 10px;
+
+        gap: 4px;
     }
+
+
+    /* =====================================================
+       EVENT PREVIEW MOBILE
+    ===================================================== */
 
     #event-preview {
         position: static !important;
-        display: none;
+
         width: 100%;
+
         margin-top: 20px;
-        transform: none !important;
-        padding-bottom: 0;
+
+        transform: none;
+
+        padding: 0;
     }
+
 
     .preview-box {
         display: flex;
+
         flex-direction: column;
+
         width: 100%;
+
         gap: 20px;
+
+        max-width: none;
+
         max-height: none;
+
         overflow: visible;
-        padding-right: 0;
+
+        padding: 0;
     }
 
-    .preview-box img {
+
+    #preview-img {
         width: 100%;
+
         height: auto;
+
+        flex: none;
     }
+
+
+    .preview-details {
+        width: 100%;
+
+        flex: none;
+    }
+
+
+    .preview-videos {
+        width: 100%;
+
+        flex: none;
+    }
+
+
+    .preview-videos iframe {
+        width: 100%;
+
+        height: 200px;
+    }
+
+
+    /* =====================================================
+       MOBILE FOOTER
+    ===================================================== */
 
     .footer {
-        position: fixed;
         bottom: 20px;
-        left: 0;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        z-index: 50;
-        background: none;
     }
+
+
+    #footer-logo {
+        width: 80px;
+    }
+
 
     .bottom-square {
         position: fixed;
+
         bottom: 20px;
-        width: 10px !important;
-        height: 10px !important;
-        font-size: 10px !important;
-        line-height: 10px !important;
-        z-index: 50;
+
+        width: 10px;
+
+        height: 10px;
     }
 
-    .bottom-square-left { left: 20px; }
-    .bottom-square-right { right: 20px; }
+
+    .bottom-square-left {
+        left: 20px;
+    }
+
+
+    .bottom-square-right {
+        right: 20px;
+    }
+
 }
-@media (max-width: 900px) {
-    /* 1. Control the vertical gap between the items */
+
+/* =========================================================
+   DESIGN ADJUSTMENTS
+========================================================= */
+
+/* The decorative bottom-corner squares are not part of the layout. */
+.bottom-square {
+    display: none !important;
+}
+
+/* Keep each clickable information row highlighted as one continuous box. */
+.text.clickable:hover,
+.text.clickable:hover > span,
+.text.clickable:hover > span a {
+    background: var(--fg);
+    color: var(--bg);
+}
+
+
+/* =========================================================
+   EVEN NAV SPACING (DESKTOP)
+========================================================= */
+
+/*
+    Columns 1-4 share the remaining width equally.
+    Column 5 is exactly as wide as the word "ABOUT" (5 characters
+    in the monospace font), so:
+
+      - ABOUT's right edge sits on the right margin
+      - ABOUT's left edge sits on the 5th evenly spaced position
+      - SHOP, LABEL, EVENTS, ARTISTS and ABOUT all start at
+        equal intervals
+
+    The same template is used by the content rows and the shop
+    gallery, so everything stays aligned with the nav.
+*/
+
+@media (min-width: 901px) {
+
+    :root {
+        --grid-columns:
+            repeat(4, minmax(0, 1fr)) 5ch;
+    }
+
+    .nav nav,
+    .text,
     .shop-gallery {
-        gap: 20px; /* Reduced from 40px - change this value to suit */
-        justify-content: center;
+        grid-template-columns: var(--grid-columns);
     }
 
-    /* 2. Remove the large bottom margin you had on desktop links */
-    .shop-item a {
-        margin-bottom: 10px; /* Reduced from 30px */
+}
+
+
+/* =========================================================
+   HOVER HIGHLIGHT: ROW ENDS AT ITS LAST TEXT
+========================================================= */
+
+/* Cancel the full-row highlight (the row itself stays transparent). */
+.text.clickable:hover {
+    background: transparent;
+    color: inherit;
+}
+
+/*
+    Every filled cell stretches to the end of its column, so the
+    highlight runs unbroken across the row...
+*/
+.text > span {
+    width: 100%;
+}
+
+/*
+    ...except the furthest-right filled cell, which shrinks to the
+    width of its own text. That is where the highlight stops.
+*/
+.text > span:not(:empty):not(:has(~ span:not(:empty))) {
+    width: fit-content;
+    max-width: 100%;
+}
+
+/* Hovering a row highlights its filled cells. */
+.text.clickable:hover > span,
+.text.clickable:hover > span a {
+    background: var(--fg);
+    color: var(--bg);
+}
+
+/* Empty cells after the last text stay unhighlighted. */
+.text.clickable:hover > span:empty:not(:has(~ span:not(:empty))) {
+    background: transparent;
+}
+
+
+/* =========================================================
+   POPUP: LEFT-ALIGNED UNDER THE TEXT (DESKTOP)
+========================================================= */
+
+@media (min-width: 901px) {
+
+    #event-preview {
+        left: 0;
+        transform: none;
     }
 
-    /* 3. Tighten the space between the image and the text */
-    .shop-text-content {
-        margin-top: 10px; /* Reduced from 15px */
-        gap: 4px;        /* Space between Title and Description */
+}
+
+
+/* =========================================================
+   POPUP ON THE SAME GRID AS THE NAV / CONTENT (DESKTOP)
+========================================================= */
+
+/*
+    Popup uses the exact same columns as the nav and rows:
+
+      column 1 (under the IDs / SHOP)    -> image
+      column 2 (under LABEL / titles)    -> text info
+      column 3 (under EVENTS / dates)    -> videos
+*/
+
+@media (min-width: 901px) {
+
+    #event-preview {
+        left: 0;
+        right: 0;
+
+        width: auto;
+
+        transform: none;
     }
+
+
+    .preview-box {
+        display: grid;
+
+        grid-template-columns: var(--grid-columns);
+
+        column-gap: 0;
+
+        width: 100%;
+        max-width: none;
+
+        padding-right: 0;
+    }
+
+
+    #preview-img {
+        grid-column: 1;
+
+        width: 100%;
+        max-width: 100%;
+
+        box-sizing: border-box;
+
+        /* gap between this column and the next */
+        padding-right: 20px;
+    }
+
+
+    .preview-details {
+        grid-column: 2;
+
+        width: auto;
+        min-width: 0;
+
+        box-sizing: border-box;
+
+        padding-right: 20px;
+    }
+
+
+    .preview-videos {
+        grid-column: 3;
+
+        width: auto;
+        min-width: 0;
+
+        box-sizing: border-box;
+
+        padding-right: 20px;
+    }
+
+
+    .preview-videos iframe {
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 16 / 9;
+    }
+
+}
+
+
+
+/* =========================================================
+   THEME (INVERT TOGGLE)
+========================================================= */
+
+/* Standard look: black on white. */
+:root[data-theme="light"] {
+    --fg: #000;
+    --bg: #fff;
+    --link: blue;
+    --invert: 0;
+
+    color-scheme: light;
+}
+
+
+/* The body is transparent so the page background image can sit
+   behind the content and be inverted separately. */
+body {
+    background-color: transparent;
+    background-image: none;
+}
+
+html {
+    background-color: var(--bg);
+}
+
+html::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    background-image: url("assets/background-image.jpg");
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+
+/* Links in the popup readable on both themes. */
+.review-link {
+    color: var(--link);
+}
+
+
+/* Footer logo video flips with the theme. */
+#footer-logo {
+    filter: invert(var(--invert));
+}
+
+
+
+/* =========================================================
+   THEME TOGGLE BUTTON
+========================================================= */
+
+#theme-toggle {
+    position: fixed;
+
+    /* Squares sit 16px left of the text, like the nav and list bullets. */
+    left: calc(var(--square-width) - 16px);
+    bottom: 30px;
+
+    z-index: 60;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    background: none;
+
+    font: inherit;
+    font-size: 10px;
+    letter-spacing: inherit;
+
+    color: var(--fg);
+
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#theme-toggle .label {
+    padding: 0;
+}
+
+#theme-toggle:hover .label,
+#theme-toggle:focus-visible .label {
+    background: var(--fg);
+    color: var(--bg);
+}
+
+#theme-toggle:focus-visible {
+    outline: none;
+}
+
+
+@media (max-width: 900px) {
+
+    #theme-toggle {
+        /* Mobile nav text starts at 20px; its squares sit 16px left. */
+        left: 4px;
+        bottom: 20px;
+    }
+
 }
