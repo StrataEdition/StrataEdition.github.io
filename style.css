@@ -34,7 +34,7 @@ body {
     margin: 0;
     padding: 0;
 
-    font-size: 12px;
+    font-size: 10px;
     font-family: 'Azeret Mono', monospace;
 
     /* Never fake bold/italic if a weight is missing. */
@@ -1694,6 +1694,60 @@ body::-webkit-scrollbar {
         grid-column: 1 / -1;
 
         width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE: STACK EACH ROW'S INFORMATION VERTICALLY
+========================================================= */
+
+/*
+    Instead of side-by-side columns, every row becomes a stack:
+
+        EVT-005
+        STRATA 6
+        22.01.26
+        THE ENGINE ROOMS [LONDON]
+
+    Applies to Events, Label, Artists, About (everything using .text).
+*/
+
+@media (max-width: 900px) {
+
+    .text {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        row-gap: 2px;
+    }
+
+
+    /* Each line is only as wide as its own text (also the hover box). */
+    .text > span,
+    .text > a {
+        width: fit-content;
+        max-width: 100%;
+    }
+
+
+    /* Unused empty cells would otherwise create blank lines. */
+    .text > span:empty {
+        display: none;
+    }
+
+
+    /* Clear gap between one entry and the next. */
+    .release-list li {
+        margin-bottom: 18px;
+    }
+
+    .release-list li.about-spacer {
+        margin-bottom: 0;
     }
 
 }

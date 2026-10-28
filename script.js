@@ -167,6 +167,22 @@ function positionPopupBelowList(listSelector) {
 
 const EVENT_DATA = {
 
+    "EVT-004": {
+
+        img:
+            "assets/STRATA-6-ENGINE-ROOMS.jpg",
+
+        venue:
+            "SPANNERS [LONDON]",
+
+        artists: [
+            "PIETRO BARDINI",
+            "ONAS UENO",
+            "CASTLE MAOL",
+            "RẮN CẠP ĐUÔI"
+        ]
+    },
+
     "EVT-006": {
 
         img:
@@ -275,6 +291,25 @@ const EVENT_DATA = {
 ========================================================= */
 
 const RELEASE_DATA = {
+
+        "STR-006": {
+
+        img:
+            "assets/ParallelRooms1024x1024.jpg",
+
+        title:
+            "FEVER BINDS THE IMAGE",
+
+        quotes: [
+            "Fever Binds The Image is a ten-track compilation bringing together artists from across the globe with STRATA's own. Each artist was invited to respond to the theme of 'vestibules', providing artists with guidelines and images as a starting point. The resulting album hints toward imaginary non-spaces, thresholds between inside and outside, moments of brief isolation between one state and the next."
+        ],
+
+        bandcamp:
+            `<iframe style="border:0;width:100%;height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1255637387/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://strataedition.bandcamp.com/album/parallel-rooms">Parallel Rooms by Pietro Bardini</a></iframe>`,
+
+        youtube: []
+    },
+
 
     "STR-005": {
 
