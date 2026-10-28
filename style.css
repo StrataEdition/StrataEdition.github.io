@@ -1623,3 +1623,47 @@ body::-webkit-scrollbar {
     }
 
 }
+
+
+/* =========================================================
+   MOBILE: FIX ROW / ABOUT LAYOUT
+========================================================= */
+
+/*
+    The mobile rule that turned each <li> into a five-column grid
+    squeezed the whole row (.text) into ONE of those columns, so rows
+    and the About text collapsed into a sliver. Each <li> is now a plain
+    block and the row (.text) owns the columns instead.
+*/
+
+@media (max-width: 900px) {
+
+    .release-list li {
+        display: block;
+    }
+
+
+    /*
+        ID | title | date | artist / venue
+        (5th column is unused and collapsed)
+    */
+    .text {
+        grid-template-columns:
+            7ch
+            minmax(0, 1fr)
+            8ch
+            minmax(0, 1fr)
+            0;
+
+        column-gap: 6px;
+    }
+
+
+    /* About sentence runs the full width of the screen. */
+    .text.about-text > .about-wide {
+        grid-column: 1 / -1;
+
+        width: 100%;
+    }
+
+}
