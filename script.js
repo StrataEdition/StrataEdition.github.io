@@ -755,7 +755,7 @@ if (footerVideo) {
         root.setAttribute("data-theme", next);
 
         try {
-            localStorage.setItem("theme", next);
+            localStorage.setItem("theme-v2", next);
         } catch (e) {}
 
         syncButton();
@@ -772,3 +772,22 @@ if (footerVideo) {
     syncButton();
 
 })();
+
+
+
+/* =========================================================
+   SERVICE WORKER (CACHING)
+========================================================= */
+
+if (
+    "serviceWorker" in navigator &&
+    (location.protocol === "https:" || location.hostname === "localhost")
+) {
+
+    window.addEventListener("load", () => {
+
+        navigator.serviceWorker
+            .register("sw.js")
+            .catch(() => {});
+    });
+}

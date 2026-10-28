@@ -7,12 +7,12 @@
 
     <title>STRATA</title>
 
-    <!-- Apply the saved theme before first paint (default: inverted/dark). -->
+    <!-- Apply the saved theme before first paint (default: light). -->
     <script>
         (function () {
-            var theme = "dark";
+            var theme = "light";
             try {
-                theme = localStorage.getItem("theme") || "dark";
+                theme = localStorage.getItem("theme-v2") || "light";
             } catch (e) {}
             document.documentElement.setAttribute("data-theme", theme);
         })();
@@ -56,7 +56,7 @@
 
 <div id="main-site" style="display:none;">
 
-    <button id="theme-toggle" type="button" aria-pressed="true" aria-label="Invert colours">
+    <button id="theme-toggle" type="button" aria-pressed="false" aria-label="Invert colours">
         <span class="nav-square">▮</span>
         <span class="label">INVERT</span>
     </button>
@@ -810,8 +810,8 @@
         "assets/SHOP1_PR.png",
         "assets/SHOP2_SD.png",
         "assets/SHOP3_MR.png",
-        "assets/STRATA-6-ENGINE-ROOMS.jpg"
-        "assets/fever-cover.png"
+        "assets/STRATA-6-ENGINE-ROOMS.jpg",
+        "assets/fever-cover.png",
         "assets/EVENT007_SPANNERS_2026_GRAINY.png"
     ];
 
@@ -820,6 +820,10 @@
     function warmCache() {
         if (started) return;
         started = true;
+
+        /* Don't burn data for people who have Data Saver switched on. */
+        if (navigator.connection && navigator.connection.saveData) return;
+
         images.forEach(src => { new Image().src = src; });
     }
 
