@@ -34,8 +34,9 @@ body {
     margin: 0;
     padding: 0;
 
-    font-size: 10px;
-    font-family: 'Azeret Mono', monospace;
+    font-size: var(--site-font-size, 10px);
+    font-family: var(--site-font, 'Azeret Mono', monospace);
+    font-weight: var(--site-font-weight, 400);
 
     /* Never fake bold/italic if a weight is missing. */
     font-synthesis: none;
@@ -50,6 +51,8 @@ body {
 
 
 :root {
+    --site-font-size: 10px;
+
     /* THEME: dark (inverted) is the default */
     --fg: #fff;
     --bg: #000;
@@ -746,7 +749,7 @@ body {
 
 
 .shop-desc {
-    font-size: 10px;
+    font-size: var(--site-font-size, 10px);
 
     line-height: 1.4;
 }
@@ -1401,7 +1404,7 @@ html::before {
     background: none;
 
     font: inherit;
-    font-size: 10px;
+    font-size: var(--site-font-size, 10px);
     letter-spacing: inherit;
 
     color: var(--fg);
@@ -1821,4 +1824,369 @@ html,
 body,
 html::before {
     transition: none !important;
+}
+
+
+
+/* =========================================================
+   SIMPLE VIDEO PLAYERS (THUMBNAIL + PLAY BUTTON)
+========================================================= */
+
+.yt-lite {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    border-radius: 0;
+
+    background: #000;
+
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+/* YouTube thumbnails are 4:3 with black bars; "cover" crops the bars off. */
+.yt-lite img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.yt-play {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 64px;
+    height: 64px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    transition: background 0.15s;
+}
+
+/* the triangle */
+.yt-play::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-35%, -50%);
+
+    border-style: solid;
+    border-width: 11px 0 11px 18px;
+    border-color: transparent transparent transparent #fff;
+}
+
+.yt-lite:hover .yt-play,
+.yt-lite:focus-visible .yt-play {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.yt-lite:focus-visible {
+    outline: none;
+}
+
+/* once clicked, the real player takes the same 16:9 space */
+.preview-videos iframe {
+    aspect-ratio: 16 / 9;
+    height: auto;
+}
+
+
+/* =========================================================
+   LIST SQUARES: LOCKED TO THE TEXT BASELINE
+========================================================= */
+
+/*
+    Each row is a flex line. The bullet is an empty zero-height box that
+    sits ON the text baseline; the visible square is drawn from it and
+    shifted down by half of (square height - capital-letter height), so
+    it is centred on the capital letters exactly. Because it is tied to
+    the baseline (not to line-height rounding), it lines up the same in
+    every browser, on desktop and mobile.
+*/
+
+:root {
+    /* height of capital letters as a fraction of the font size
+       (0.698 for Azeret Mono; the portal sets this for other fonts) */
+    --cap-ratio: 0.698;
+    --cap-height: calc(var(--cap-ratio) * var(--site-font-size, 10px));
+
+    /* list squares: an ODD height (cap height is ~7px) keeps the square
+       perfectly centred on the letters with equal gaps above and below */
+    --bullet-h: 9px;
+
+    /* extra manual nudge in px (+ moves the square down) */
+    --square-nudge: 0px;
+}
+
+.release-list li {
+    display: flex;
+
+    align-items: baseline;
+}
+
+.release-list li > .bullet {
+    position: relative;
+
+    display: block;
+
+    left: 0;
+    top: 0;
+
+    /* sits in the 16px gutter left of the text without taking any space */
+    margin-left: -16px;
+    margin-right: 6px;
+
+    flex: 0 0 10px;
+
+    width: 10px;
+    height: 0;
+
+    align-self: baseline;
+
+    overflow: visible;
+}
+
+.release-list li > .bullet::before {
+    position: absolute;
+
+    left: calc((10px - var(--square-w)) / 2);
+
+    bottom: calc(-1 * ((var(--bullet-h) - var(--cap-height)) / 2 + var(--square-nudge)));
+
+    width: var(--square-w);
+    height: var(--bullet-h);
+}
+
+.release-list li > .text {
+    flex: 1 1 auto;
+
+    min-width: 0;
+}
+
+/* gaps have no content */
+.release-list li.about-spacer {
+    display: block;
+}
+
+
+
+/* =========================================================
+   ABOUT: COLUMNS LINED UP WITH THE HEADINGS
+========================================================= */
+
+.about-grid {
+    display: block;
+}
+
+.about-col {
+    box-sizing: border-box;
+}
+
+.about-line {
+    display: block;
+
+    min-width: 0;
+
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.about-line a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.about-line a:hover {
+    background: var(--fg);
+    color: var(--bg);
+}
+
+.about-col li {
+    margin-bottom: 2px;
+}
+
+/* lines without a square still wrap inside their column */
+.release-list li > .about-line {
+    flex: 1 1 auto;
+
+    min-width: 0;
+}
+
+.about-col li.about-spacer {
+    margin-bottom: 0;
+}
+
+.about-col:empty {
+    display: none;
+}
+
+/* desktop: one column of lines under each heading */
+@media (min-width: 901px) {
+
+    .about-grid {
+        display: grid;
+
+        grid-template-columns: var(--grid-columns);
+
+        column-gap: 0;
+
+        align-items: start;
+    }
+
+    .about-col {
+        padding-right: 20px;
+    }
+
+    .about-col:empty {
+        display: block;
+    }
+}
+
+/* mobile: the columns simply stack, with a gap between groups */
+@media (max-width: 900px) {
+
+    .about-col + .about-col {
+        margin-top: 18px;
+    }
+
+    .about-col li {
+        margin-bottom: 2px;
+    }
+}
+
+
+/* =========================================================
+   SITE STYLE (EDITED FROM THE PORTAL)
+   Keep this block last so it overrides the defaults above.
+========================================================= */
+
+/* PORTAL:BEGIN style */
+:root {
+    --site-font-size: 10px;
+    --site-font: 'Azeret Mono', monospace;
+    --site-font-weight: 400;
+    --cap-ratio: 0.698;
+    --square-w: 6px;
+    --bullet-h: 9px;
+    --square-nudge: 0px;
+    --fg: #ffffff;
+    --bg: #000000;
+}
+
+:root[data-theme="light"] {
+    --fg: #000000;
+    --bg: #ffffff;
+}
+
+@media (max-width: 900px) {
+    :root {
+        --site-font-size: 10px;
+    }
+}
+/* PORTAL:END style */
+
+
+
+/* =========================================================
+   SHOP ITEM TEXT: SQUARE + TITLE / TYPE / DESCRIPTION / PRICE
+========================================================= */
+
+.shop-text-content {
+    gap: 0;
+}
+
+/* line 1: square + title, locked to the baseline like the list squares */
+.shop-title-line {
+    display: flex;
+
+    align-items: baseline;
+}
+
+.shop-title-line > .bullet {
+    position: relative;
+
+    display: block;
+
+    left: 0;
+    top: 0;
+
+    margin-left: -16px;
+    margin-right: 6px;
+
+    flex: 0 0 10px;
+
+    width: 10px;
+    height: 0;
+
+    align-self: baseline;
+
+    overflow: visible;
+}
+
+.shop-title-line > .bullet::before {
+    position: absolute;
+
+    left: calc((10px - var(--square-w)) / 2);
+
+    bottom: calc(-1 * ((var(--bullet-h) - var(--cap-height)) / 2 + var(--square-nudge)));
+
+    width: var(--square-w);
+    height: var(--bullet-h);
+}
+
+.shop-title-line .event-label {
+    margin: 0;
+}
+
+/* lines 2-4 */
+.shop-type {
+    display: block;
+
+    margin-top: 2px;
+}
+
+.shop-desc {
+    display: block;
+
+    margin-top: 8px;
+}
+
+.shop-price {
+    display: block;
+
+    margin-top: 8px;
+}
+
+/* highlight the title when the item is hovered */
+.shop-item:hover .shop-title {
+    background: var(--fg);
+
+    color: var(--bg);
 }

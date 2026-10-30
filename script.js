@@ -165,9 +165,10 @@ function positionPopupBelowList(listSelector) {
    EVENT DATA
 ========================================================= */
 
+/* PORTAL:BEGIN event-data */
 const EVENT_DATA = {
 
-        "EVT-007": {
+    "EVT-007": {
 
         img:
             "assets/EVENT007_SPANNERS_2026_GRAINY.png",
@@ -183,22 +184,6 @@ const EVENT_DATA = {
         ]
     },
 
-
-    "EVT-004": {
-
-        img:
-            "assets/STRATA-6-ENGINE-ROOMS.jpg",
-
-        venue:
-            "SPANNERS [LONDON]",
-
-        artists: [
-            "PIETRO BARDINI",
-            "ONAS UENO",
-            "CASTLE MAOL",
-            "RẮN CẠP ĐUÔI"
-        ]
-    },
 
     "EVT-006": {
 
@@ -301,15 +286,17 @@ const EVENT_DATA = {
         ]
     }
 };
+/* PORTAL:END event-data */
 
 
 /* =========================================================
    RELEASE DATA
 ========================================================= */
 
+/* PORTAL:BEGIN release-data */
 const RELEASE_DATA = {
 
-        "STR-006": {
+    "STR-006": {
 
         img:
             "assets/fever-cover.png",
@@ -318,13 +305,15 @@ const RELEASE_DATA = {
             "FEVER BINDS THE IMAGE",
 
         quotes: [
-            "Fever Binds The Image is a ten-track compilation bringing together artists from across the globe with STRATA's own. Each artist was invited to respond to the theme of 'vestibules', providing artists with guidelines and images as a starting point. The resulting album hints toward imaginary non-spaces, thresholds between inside and outside, moments of brief isolation between one state and the next."
+            "Fever Binds The Image is a ten-track compilation bringing together artists from across the globe with STRATA's own. Each artist was invited to respond to the theme of 'vestibules', providing artists with guidelines and images as a starting point.<br><br>The resulting album hints toward imaginary non-spaces, thresholds between inside and outside, moments of brief isolation between one state and the next.<br><br>1. PIETRO BARDINI: The flood has left but the wood is rotten<br>2. YIKII: 月光标本室，合鸣枯萎时 (Moonlight Specimen Room, As Resonances Withered)<br>3. ONAS UENO: The Glint of His Veneers<br>4. ANS M: Unfurl Silvers<br>5. HOLODEC: Reappear<br>6. CASTLE MAOL: Summer drives people crazy, and that makes them commit terrible acts<br>7. KELMAN DURAN: july 23-8 b lues 2-4<br>8. KENT WATARI: iNhaleeXhale<br>9. FAUSTO MERCIER: angels morts<br>10. RẮN CẠP ĐUÔI FT. IMRYLL: Long Marshes<br><br>Mastering: Fausto Mercier<br>Album cover: STRATA"
         ],
 
         bandcamp:
-            `<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=340048183/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://strataedition.bandcamp.com/album/fever-binds-the-image">Fever Binds The Image by V/A</a></iframe>`,
+            "<iframe style=\"border:0;width:100%;height:120px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=340048183/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/\" seamless></iframe>",
 
-        youtube: []
+        youtube: [
+
+        ]
     },
 
 
@@ -337,13 +326,15 @@ const RELEASE_DATA = {
             "PARALLEL ROOMS",
 
         quotes: [
-            "Parallel Rooms is a two-track composition for strings and electronics recorded in 2024-25. The pieces came together by recording improvisations guided by a set of graphic notations and arranged harmonic motifs, editing and layering them, then re-amping and improvising again over those takes."
+            "Parallel Rooms is a two-track composition for strings and electronics recorded in 2024-25. The pieces came together by recording improvisations guided by a set of graphic notations and arranged harmonic motifs, editing and layering them, then re-amping and improvising again over those takes.<br><br>1. Room One<br>2. Room Two<br>3. Extract: Room One, Section VI<br>4. Extract: Room Two, Section I<br><br>Composed and Produced: Pietro Bardini<br><br>Violin: Angharad Davies<br>Double Bass: Caius Williams<br>Cello: Isidora Edwards<br>Viola: Charis Morgan / Ariane Alexander<br>Piano: Pietro Bardini<br><br>Additional Arrangements for Room One: Tim Pottier<br><br>Additional Mixing: Sean Woodford<br>Mastering: Noel Summerville<br><br>Album cover miniature models: Pietro Bardini<br>Album cover photograph: Sotiris Gonis"
         ],
 
         bandcamp:
-            `<iframe style="border:0;width:100%;height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1255637387/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://strataedition.bandcamp.com/album/parallel-rooms">Parallel Rooms by Pietro Bardini</a></iframe>`,
+            "<iframe style=\"border:0;width:100%;height:120px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=1255637387/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/\" seamless></iframe>",
 
-        youtube: []
+        youtube: [
+
+        ]
     },
 
 
@@ -356,11 +347,11 @@ const RELEASE_DATA = {
             "MEMORY RECOIL",
 
         quotes: [
-            "Shifting from swirling sound design to teetering piano motifs, Memory Recoil ventures deeper into the heart of the hard drive, where the haunted remnants of compressed data are mechanically recombined into uncanny, heartfelt confabulations."
+            "Shifting from swirling sound design to teetering piano motifs, Memory Recoil ventures deeper into the heart of the hard drive, where the haunted remnants of compressed data are mechanically recombined into uncanny, heartfelt confabulations.<br><br>1. Optical Eraser<br>2. Non-Recoverable Read Errors<br>3. Bad Sectors<br>4. Memory Recoil<br><br>Written and Produced: Partial Defrag<br>Mixing &amp; Mastering: Pietro Bardini<br>Album cover: Partial Defrag"
         ],
 
         bandcamp:
-            `<iframe style="border:0;width:100%;height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=707364654/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/" seamless></iframe>`,
+            "<iframe style=\"border:0;width:100%;height:120px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=707364654/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/\" seamless></iframe>",
 
         youtube: [
             "iX9x_s5Wp7E"
@@ -377,13 +368,16 @@ const RELEASE_DATA = {
             "UMWELT",
 
         quotes: [
-            `"Onas Ueno's Umwelt EP is a haunting, immersive journey through ambient and experimental soundscapes. Blending glitch, spectral melodies, and neoclassical tones, each track unfolds with emotional depth and textural richness." — <a class="review-link" target="_blank" href="https://igloomag.com/reviews/onas-ueno-umwelt-strata">Igloo Mag</a>`
+            "1. Too Ghost To Body<br>2. Lo<br>3. Every Dread Delight<br>4. Qualia<br>5. Tools For A Second<br>6. What Angels<br><br>Across its runtime, Onas Ueno builds immersive soundscapes that shift and fracture like thoughts mid-formation. Blending ambient atmospheres, digital dissonance and tactile textures, Umwelt sketches a fragmented world; half hyper-real, half doodle.<br><br>Written and Produced: Jonas Pequeno<br>Mixing Engineer: Jonas Pequeno<br>Master Engineer: Conor Dalton<br>Album cover: Amelia Galliford",
+            "\"Onas Ueno's Umwelt EP is a haunting, immersive journey through ambient and experimental soundscapes. Blending glitch, spectral melodies, and neoclassical tones, each track unfolds with emotional depth and textural richness.\" — <a class=\"review-link\" target=\"_blank\" href=\"https://igloomag.com/reviews/onas-ueno-umwelt-strata\">Igloo Mag</a>"
         ],
 
         bandcamp:
-            `<iframe style="border:0;width:100%;height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2963886556/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=none/transparent=true/" seamless></iframe>`,
+            "<iframe style=\"border:0;width:100%;height:120px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=2963886556/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=none/transparent=true/\" seamless></iframe>",
 
-        youtube: []
+        youtube: [
+
+        ]
     },
 
 
@@ -396,11 +390,12 @@ const RELEASE_DATA = {
             "ETTRICK SITES",
 
         quotes: [
-            `"Named after Loch Ettrick in Scotland’s Dumfries and Galloway where it was created, this new AV collaboration evokes a primeval digital universe." — <a class="review-link" target="_blank" href="https://www.thewire.co.uk">The Wire</a>`
+            "Ettrick Sites is the debut release of the London-based collaborative project Gloves to Bouquet. Conceived and produced during a week-long reclusive trip to Loch Ettrick, each song unfolds as a piece of speculative fiction; caricatures spanning rotten fantasy to digital horror.<br><br>1. Sleeper Build<br>2. Tales to Spin<br>3. Billy Walk Cycle<br>4. Blue Dragon<br><br>Written and Produced: Jonas Pequeno and Alexander MacKinnon<br>Mixing &amp; Mastering: Jonas Pequeno<br>Album cover: Zhe Con and Alexander MacKinnon<br>Video Productions: Jonas Pequeno and Alexander MacKinnon",
+            "\"Named after Loch Ettrick in Scotland’s Dumfries and Galloway where it was created, this new AV collaboration evokes a primeval digital universe.\" — <a class=\"review-link\" target=\"_blank\" href=\"https://www.thewire.co.uk\">The Wire</a>"
         ],
 
         bandcamp:
-            `<iframe style="border:0;width:100%;height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=4057023817/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=none/transparent=true/" seamless></iframe>`,
+            "<iframe style=\"border:0;width:100%;height:120px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=4057023817/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=none/transparent=true/\" seamless></iframe>",
 
         youtube: [
             "AvJs1v066kA",
@@ -418,14 +413,13 @@ const RELEASE_DATA = {
             "SCANDISK",
 
         quotes: [
-
-            `"Snapshots of voices and digital debris conjuring up a journey through London’s nocturnal streets" — <a class="review-link" target="_blank" href="https://thequietus.com/quietus-reviews/partial-defrag-scandisk-review/">The Quietus</a>`,
-
-            `"Prickly compositions pulled from the dregs of hard drive compression" — <a class="review-link" target="_blank" href="https://www.ninaprotocol.com/articles/partial-defrag-scandisk">NINA Protocol</a>`
+            "ScanDisk is the debut release of London-based artist Partial Defrag. Whispered voices, car engines, and ethereal club hooks are cut up, compressed, and congealed into a fluid, late-night motif for a spectral, industrial London. Partial Defrag’s free-form compositions are the leftovers of a hard drive compression: space-optimised memories tainted with artifacts.<br><br>1. Elmelin<br>2. Bates<br>3. Pulsarnet<br>4. Wholesalers<br>5. Squat<br>6. VFS<br><br>Written and Produced: Partial Defrag<br>Videos: Partial Defrag<br>Mastering: Fausto Mercier<br>Mixing: Pietro Bardini at RCA Studios<br>Cover and CD design: Partial Defrag",
+            "\"Snapshots of voices and digital debris conjuring up a journey through London’s nocturnal streets\" — <a class=\"review-link\" target=\"_blank\" href=\"https://thequietus.com/quietus-reviews/partial-defrag-scandisk-review/\">The Quietus</a>",
+            "\"Prickly compositions pulled from the dregs of hard drive compression\" — <a class=\"review-link\" target=\"_blank\" href=\"https://www.ninaprotocol.com/articles/partial-defrag-scandisk\">NINA Protocol</a>"
         ],
 
         bandcamp:
-            `<iframe style="border:0;width:100%;height:120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1119581680/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=none/transparent=true/" seamless></iframe>`,
+            "<iframe style=\"border:0;width:100%;height:120px;\" src=\"https://bandcamp.com/EmbeddedPlayer/album=1119581680/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=none/transparent=true/\" seamless></iframe>",
 
         youtube: [
             "npcC32gz2KQ",
@@ -434,6 +428,7 @@ const RELEASE_DATA = {
         ]
     }
 };
+/* PORTAL:END release-data */
 
 
 /* =========================================================
@@ -585,7 +580,10 @@ function previewRelease(id) {
                 ? data.youtube
                     .map(
                         videoId =>
-                            `<iframe src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>`
+                            `<button class="yt-lite" type="button" data-video="${videoId}" aria-label="Play video">` +
+                                `<img src="https://i.ytimg.com/vi/${videoId}/hqdefault.jpg" alt="" loading="lazy">` +
+                                `<span class="yt-play"></span>` +
+                            `</button>`
                     )
                     .join("")
 
@@ -759,9 +757,15 @@ if (footerVideo) {
             document.querySelector('meta[name="theme-color"]');
 
         if (meta) {
+
+            const cfg =
+                (window.STRATA_THEME || {})[next];
+
             meta.setAttribute(
                 "content",
-                next === "dark" ? "#000000" : "#ffffff"
+                cfg && cfg.bg
+                    ? cfg.bg
+                    : (next === "dark" ? "#000000" : "#ffffff")
             );
         }
 
@@ -806,5 +810,54 @@ if (
         navigator.serviceWorker
             .register("sw.js")
             .catch(() => {});
+    });
+}
+
+
+
+/* =========================================================
+   SIMPLE VIDEO PLAYERS (YouTube loads only when clicked)
+========================================================= */
+
+/*
+    Each video is shown as its thumbnail with one plain play button.
+    The real YouTube player (and its title / channel / "Watch on
+    YouTube" overlays) is only created when a video is clicked, and then
+    starts playing straight away. This also makes the popups load faster.
+*/
+
+if (previewVideos) {
+
+    previewVideos.addEventListener("click", event => {
+
+        const button =
+            event.target.closest(".yt-lite");
+
+        if (!button) {
+            return;
+        }
+
+        /* Stop the click-away handler closing the popup, since the
+           button is removed from the page by this click. */
+        event.stopPropagation();
+
+        const id =
+            button.getAttribute("data-video");
+
+        const frame =
+            document.createElement("iframe");
+
+        frame.src =
+            "https://www.youtube-nocookie.com/embed/" + id +
+            "?autoplay=1&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3";
+
+        frame.allow =
+            "autoplay; encrypted-media; picture-in-picture; fullscreen";
+
+        frame.allowFullscreen = true;
+
+        frame.setAttribute("frameborder", "0");
+
+        button.replaceWith(frame);
     });
 }

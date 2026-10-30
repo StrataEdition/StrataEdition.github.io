@@ -9,25 +9,32 @@
 
     <meta name="theme-color" content="#ffffff">
 
-    <!-- Apply the saved theme before first paint (default: light). -->
+    <!-- Theme colours and default theme (edited from the portal) -->
+    <script>
+        /* PORTAL:BEGIN theme-config */
+        window.STRATA_THEME = {"default":"dark","light":{"bg":"#ffffff","fg":"#000000"},"dark":{"bg":"#000000","fg":"#ffffff"}};
+        /* PORTAL:END theme-config */
+    </script>
+
+    <!-- Apply the saved theme before first paint -->
     <script>
         (function () {
-            var theme = "dark";
+            var cfg = window.STRATA_THEME || {};
+            var theme = cfg["default"] || "dark";
             try {
-                theme = localStorage.getItem("theme-v2") || "dark";
+                theme = localStorage.getItem("theme-v2") || theme;
             } catch (e) {}
             document.documentElement.setAttribute("data-theme", theme);
 
             var meta = document.querySelector('meta[name="theme-color"]');
-            if (meta) meta.setAttribute("content", theme === "dark" ? "#000000" : "#ffffff");
+            var c = cfg[theme];
+            if (meta) meta.setAttribute("content", c && c.bg ? c.bg : (theme === "dark" ? "#000000" : "#ffffff"));
         })();
     </script>
 
-    <link rel="preload"
-          as="font"
-          type="font/woff"
-          href="assets/AzeretMono-Variable.woff"
-          crossorigin>
+    <!-- PORTAL:BEGIN font-preload -->
+    <link rel="preload" as="font" type="font/woff" href="assets/AzeretMono-Variable.woff" crossorigin>
+    <!-- PORTAL:END font-preload -->
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -75,6 +82,7 @@
 
         <nav>
 
+            <!-- PORTAL:BEGIN nav -->
             <span class="nav-item">
                 <span class="nav-square nav-left">▮</span>
                 <a onclick="showPage('shop', this)">SHOP</a>
@@ -99,6 +107,7 @@
                 <a onclick="showPage('about', this)">ABOUT</a>
                 <span class="nav-square">▮</span>
             </span>
+            <!-- PORTAL:END nav -->
 
         </nav>
 
@@ -121,7 +130,7 @@
             <div id="shop" class="page" style="display:none;">
 
                 <div class="shop-gallery">
-
+                    <!-- PORTAL:BEGIN shop -->
                     <div class="shop-item">
 
                         <a href="https://strataedition.bandcamp.com/album/fever-binds-the-image"
@@ -129,19 +138,20 @@
                            rel="noopener noreferrer">
 
                             <img src="assets/fever-cd.png"
-                                 alt="Fever Binds The Image">
+                                 alt="FEVER BINDS THE IMAGE">
 
                             <div class="shop-text-content">
 
-                                <div>
-                                    <span class="event-label">
-                                        FEVER BINDS THE IMAGE
-                                    </span>
+                                <div class="shop-title-line">
+                                    <span class="bullet">▮</span>
+                                    <span class="event-label shop-title">FEVER BINDS THE IMAGE</span>
                                 </div>
 
-                                <span class="shop-desc">
-                                    Limited-edition super jewel case with an 8-pages foldout booklet.
-                                </span>
+                                <span class="shop-type">CD + POSTER</span>
+
+                                <span class="shop-desc">Limited-edition super jewel case with an 8-pages foldout booklet. Double sided poster featuring text cover and candle character also available.</span>
+
+                                <span class="shop-price">£15</span>
 
                             </div>
 
@@ -150,28 +160,27 @@
                     </div>
 
 
-            <div class="shop-item">
+                    <div class="shop-item">
 
                         <a href="https://strataedition.bandcamp.com/album/parallel-rooms"
                            target="_blank"
                            rel="noopener noreferrer">
 
                             <img src="assets/SHOP1_PR.png"
-                                 alt="Parallel Rooms">
+                                 alt="PARALLEL ROOMS">
 
                             <div class="shop-text-content">
 
-                                <div>
-                                    <span class="event-label">
-                                        PARALLEL ROOMS
-                                    </span>
+                                <div class="shop-title-line">
+                                    <span class="bullet">▮</span>
+                                    <span class="event-label shop-title">PARALLEL ROOMS</span>
                                 </div>
 
-                                <span class="shop-desc">
-                                    Limited-edition transparent brown cassettes,
-                                    with transparent brown covers and outer
-                                    graphic O-Cards.
-                                </span>
+                                <span class="shop-type">CASETTE</span>
+
+                                <span class="shop-desc">Limited-edition transparent brown cassettes, with transparent brown covers and outer graphic O-Cards.</span>
+
+                                <span class="shop-price">£8</span>
 
                             </div>
 
@@ -187,21 +196,20 @@
                            rel="noopener noreferrer">
 
                             <img src="assets/SHOP3_MR.png"
-                                 alt="Memory Recoil">
+                                 alt="MEMORY RECOIL">
 
                             <div class="shop-text-content">
 
-                                <div>
-                                    <span class="event-label">
-                                        MEMORY RECOIL
-                                    </span>
+                                <div class="shop-title-line">
+                                    <span class="bullet">▮</span>
+                                    <span class="event-label shop-title">MEMORY RECOIL</span>
                                 </div>
 
-                                <span class="shop-desc">
-                                    Double limited-edition CDs in flip-cases
-                                    with blue or red vinyl-sticker cover,
-                                    packaged in anti-static hard drive bags.
-                                </span>
+                                <span class="shop-type">CD</span>
+
+                                <span class="shop-desc">Blue and Red limited edition CDs in flip-cases with vinyl sticker cover, packaged in antistatic bags.</span>
+
+                                <span class="shop-price">£7</span>
 
                             </div>
 
@@ -217,27 +225,27 @@
                            rel="noopener noreferrer">
 
                             <img src="assets/SHOP2_SD.png"
-                                 alt="Scandisk">
+                                 alt="SCANDISK">
 
                             <div class="shop-text-content">
 
-                                <div>
-                                    <span class="event-label">
-                                        SCANDISK
-                                    </span>
+                                <div class="shop-title-line">
+                                    <span class="bullet">▮</span>
+                                    <span class="event-label shop-title">SCANDISK</span>
                                 </div>
 
-                                <span class="shop-desc">
-                                    Limited-edition blue CDs packaged
-                                    in anti-static hard drive bags.
-                                </span>
+                                <span class="shop-type">CD</span>
+
+                                <span class="shop-desc">Limited-edition blue CDs packaged in anti-static hard drive bags.</span>
+
+                                <span class="shop-price">£7</span>
 
                             </div>
 
                         </a>
 
                     </div>
-
+                    <!-- PORTAL:END shop -->
                 </div>
 
             </div>
@@ -250,8 +258,7 @@
             <div id="events" class="page">
 
                 <ul class="release-list">
-
-                    
+                    <!-- PORTAL:BEGIN events -->
                     <li>
                         <span class="bullet">▮</span>
 
@@ -362,7 +369,7 @@
 
                         </span>
                     </li>
-
+                    <!-- PORTAL:END events -->
                 </ul>
 
             </div>
@@ -375,7 +382,7 @@
             <div id="artists" class="page" style="display:none;">
 
                 <ul class="release-list">
-
+                    <!-- PORTAL:BEGIN artists -->
                     <li>
                         <span class="bullet">▮</span>
 
@@ -387,15 +394,18 @@
                                     ART-005
                                 </a>
                             </span>
-
                             <span>
                                 <a target="_blank"
                                    href="https://instagram.com/pietrobardini/">
                                     PIETRO BARDINI
                                 </a>
                             </span>
-
-                            <span></span>
+                            <span>
+                                <a target="_blank"
+                                   href="https://instagram.com/pietrobardini/">
+                                    REGGIO EMILIA, IT
+                                </a>
+                            </span>
                             <span></span>
                             <span></span>
 
@@ -414,15 +424,18 @@
                                     ART-004
                                 </a>
                             </span>
-
                             <span>
                                 <a target="_blank"
                                    href="https://www.instagram.com/alexandersnout/">
                                     CASTLE MAOL
                                 </a>
                             </span>
-
-                            <span></span>
+                            <span>
+                                <a target="_blank"
+                                   href="https://www.instagram.com/alexandersnout/">
+                                    LONDON, UK
+                                </a>
+                            </span>
                             <span></span>
                             <span></span>
 
@@ -433,11 +446,11 @@
                     <li>
                         <span class="bullet">▮</span>
 
-                        <span class="text clickable">
+                        <span class="text">
 
                             <span>ART-003</span>
                             <span>GLOVES TO BOUQUET</span>
-                            <span></span>
+                            <span>LONDON, UK</span>
                             <span></span>
                             <span></span>
 
@@ -456,15 +469,18 @@
                                     ART-002
                                 </a>
                             </span>
-
                             <span>
                                 <a target="_blank"
                                    href="https://instagram.com/jonaspequeno/">
                                     ONAS UENO
                                 </a>
                             </span>
-
-                            <span></span>
+                            <span>
+                                <a target="_blank"
+                                   href="https://instagram.com/jonaspequeno/">
+                                    LONDON, UK
+                                </a>
+                            </span>
                             <span></span>
                             <span></span>
 
@@ -483,21 +499,24 @@
                                     ART-001
                                 </a>
                             </span>
-
                             <span>
                                 <a target="_blank"
                                    href="https://instagram.com/pietrobardini/">
                                     PARTIAL DEFRAG
                                 </a>
                             </span>
-
-                            <span></span>
+                            <span>
+                                <a target="_blank"
+                                   href="https://instagram.com/pietrobardini/">
+                                    REGGIO EMILIA, IT
+                                </a>
+                            </span>
                             <span></span>
                             <span></span>
 
                         </span>
                     </li>
-
+                    <!-- PORTAL:END artists -->
                 </ul>
 
             </div>
@@ -510,7 +529,7 @@
             <div id="label" class="page" style="display:none;">
 
                 <ul class="release-list">
-
+                    <!-- PORTAL:BEGIN label -->
                     <li>
                         <span class="bullet">▮</span>
 
@@ -525,6 +544,7 @@
 
                         </span>
                     </li>
+
 
                     <li>
                         <span class="bullet">▮</span>
@@ -604,7 +624,7 @@
 
                         </span>
                     </li>
-
+                    <!-- PORTAL:END label -->
                 </ul>
 
             </div>
@@ -616,149 +636,51 @@
 
             <div id="about" class="page" style="display:none;">
 
-                <ul class="release-list">
+                <div class="about-grid">
 
-                    <li>
-                        <span class="bullet">▮</span>
+                    <!-- PORTAL:BEGIN about -->
+                    <ul class="release-list about-col">
+                        <li>
+                            <span class="bullet">▮</span>
+                            <span class="about-line">STRATA is a label focused on promoting experimental audio-visual events.</span>
+                        </li>
+                        <li class="about-spacer"></li>
+                        <li>
+                            <span class="bullet">▮</span>
+                            <span class="about-line clickable"><a target="_blank" href="https://strataedition.bandcamp.com/">BANDCAMP</a></span>
+                        </li>
+                        <li>
+                            <span class="bullet">▮</span>
+                            <span class="about-line clickable"><a target="_blank" href="https://soundcloud.com/strata-edition">SOUNDCLOUD</a></span>
+                        </li>
+                        <li>
+                            <span class="bullet">▮</span>
+                            <span class="about-line clickable"><a target="_blank" href="https://instagram.com/strata.edition">INSTAGRAM</a></span>
+                        </li>
+                        <li class="about-spacer"></li>
+                        <li>
+                            <span class="bullet">▮</span>
+                            <span class="about-line clickable"><a href="mailto:strata.edition@gmail.com">strata.edition@gmail.com</a></span>
+                        </li>
+                        <li>
+                            <span class="bullet">▮</span>
+                            <span class="about-line">LONDON, UK</span>
+                        </li>
+                        <li class="about-spacer"></li>
+                        <li>
+                            <span class="bullet">▮</span>
+                            <span class="about-line">© 2026 STRATA ALL RIGHTS RESERVED</span>
+                        </li>
+                    </ul>
 
-                        <span class="text about-text">
+                    <ul class="release-list about-col"></ul>
 
-                            <span class="about-wide">
-                                STRATA is a label focused on promoting
-                                experimental audio-visual events.
-                            </span>
+                    <ul class="release-list about-col"></ul>
 
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                    <ul class="release-list about-col"></ul>
+                    <!-- PORTAL:END about -->
 
-                        </span>
-                    </li>
-
-
-                    <li class="about-spacer"></li>
-
-
-                    <li>
-                        <span class="bullet">▮</span>
-
-                        <span class="text clickable">
-
-                            <span>
-                                <a target="_blank"
-                                   href="https://strataedition.bandcamp.com/">
-                                    BANDCAMP
-                                </a>
-                            </span>
-
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-
-                        </span>
-                    </li>
-
-
-                    <li>
-                        <span class="bullet">▮</span>
-
-                        <span class="text clickable">
-
-                            <span>
-                                <a target="_blank"
-                                   href="https://soundcloud.com/strata-edition">
-                                    SOUNDCLOUD
-                                </a>
-                            </span>
-
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-
-                        </span>
-                    </li>
-
-
-                    <li>
-                        <span class="bullet">▮</span>
-
-                        <span class="text clickable">
-
-                            <span>
-                                <a target="_blank"
-                                   href="https://instagram.com/strata.edition">
-                                    INSTAGRAM
-                                </a>
-                            </span>
-
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-
-                        </span>
-                    </li>
-
-
-                    <li class="about-spacer"></li>
-
-
-                    <li>
-                        <span class="bullet">▮</span>
-
-                        <span class="text clickable">
-
-                            <span>
-                                <a href="mailto:strata.edition@gmail.com">
-                                    strata.edition@gmail.com
-                                </a>
-                            </span>
-
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-
-                        </span>
-                    </li>
-
-
-                    <li>
-                        <span class="bullet">▮</span>
-
-                        <span class="text">
-
-                            <span>LONDON, UK</span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-
-                        </span>
-                    </li>
-
-
-                    <li class="about-spacer"></li>
-
-
-                    <li>
-                        <span class="bullet">▮</span>
-
-                        <span class="text">
-
-                            <span>© 2026 STRATA ALL RIGHTS RESERVED</span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-
-                        </span>
-                    </li>
-
-                </ul>
+                </div>
 
             </div>
 
@@ -829,23 +751,25 @@
 <script>
 (function () {
     const images = [
+        /* PORTAL:BEGIN images */
+        "assets/fever-cd.png",
+        "assets/SHOP1_PR.png",
+        "assets/SHOP3_MR.png",
+        "assets/SHOP2_SD.png",
+        "assets/EVENT007_SPANNERS_2026_GRAINY.png",
+        "assets/STRATA-6-ENGINE-ROOMS.jpg",
         "assets/STRATA-5-HORSE-HOSPITAL-POSTER.jpg",
         "assets/STRATA-4-ENGINE-ROOMS.jpg",
         "assets/STRATA-3-RCA.jpg",
         "assets/STRATA-2-GOLDSMITHS-IKLECTIK-POSTER.jpg",
         "assets/STRATA-POSTER-A4.jpg",
+        "assets/fever-cover.png",
         "assets/ParallelRooms1024x1024.jpg",
         "assets/MemoryRecoilMidRes.jpg",
         "assets/UmweltArtwork.jpg",
         "assets/EttrickSitesCover1024x1024.jpg",
         "assets/ScanDiskCover.jpg",
-        "assets/background-image.jpg",
-        "assets/SHOP1_PR.png",
-        "assets/SHOP2_SD.png",
-        "assets/SHOP3_MR.png",
-        "assets/STRATA-6-ENGINE-ROOMS.jpg",
-        "assets/fever-cover.png",
-        "assets/EVENT007_SPANNERS_2026_GRAINY.png"
+        /* PORTAL:END images */
     ];
 
     let started = false;
