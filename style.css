@@ -2091,7 +2091,7 @@ html::before {
 :root {
     --site-font-size: 10px;
     --site-font: 'Azeret Mono', monospace;
-    --site-font-weight: 400;
+    --site-font-weight: 500;
     --cap-ratio: 0.698;
     --square-w: 6px;
     --bullet-h: 9px;
